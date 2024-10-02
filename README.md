@@ -156,6 +156,9 @@ Extract type definitions from a network in AppsScript.
 
 #### Drive v2
 
+> [!TIP]
+> When importing the service, the ID will be changed to `Drive_v2` instead of `Drive`, and the type definition will also be changed.
+
 1. Copy files
     Copy files
     ```shell

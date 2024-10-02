@@ -78,3 +78,8 @@ Extract type definitions from a network in AppsScript.
     ```shell
     bun run scripts/parse-txt2types.ts processed/basic-features.txt
     ```
+4. Reformated
+    ```shell
+    bun run prettier -w @types
+    ```
+    

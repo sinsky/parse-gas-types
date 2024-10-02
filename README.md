@@ -71,3 +71,6 @@ Extract type definitions from a network in AppsScript.
     ```
     ...WEDNESDAY:Weekday;}\"]]]
     ```
+    3. Remove line breaks
+    search keyword: \n <-- RegExp
+    replace text:  <-- Empty

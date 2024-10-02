@@ -153,3 +153,52 @@ Extract type definitions from a network in AppsScript.
     ```shell
     bun run prettier -w @types
     ```
+
+#### Drive v2
+
+1. Copy files
+    Copy files
+    ```shell
+    mkdir processed
+    cp raw/drive-v2.txt processed/drive-v2.txt
+    ```
+2. removed data
+   1. Delete the first text
+    before
+    ```
+    )
+    ]
+    }'
+
+    114939
+    [["wrb.fr","iP35l","[[[\"drive_v2.d.ts\"...
+    ```
+    after
+    ```
+    [[[\"drive_v2.d.ts\"...
+    ```
+    2. Delete the last text
+    before
+    ```
+    ...Drive_v2:Drive_v2;\"]]]",null,null,null,"generic"]]
+    57
+    [["di",299],["af.httprm",298,"9115397668139962501",15]]
+    28
+    [["e",4,null,null,115040]]
+
+    ```
+    after
+    ```
+    ...Drive_v2:Drive_v2;\"]]]
+    ```
+    3. Remove line breaks
+    search keyword: \n <-- RegExp
+    replace text:  <-- Empty
+3. Run the macro.
+    ```shell
+    bun run scripts/parse-txt2types-service.ts processed/drive-v2.txt
+    ```
+4. Reformated
+    ```shell
+    bun run prettier -w @types
+    ```

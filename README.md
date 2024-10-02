@@ -74,3 +74,7 @@ Extract type definitions from a network in AppsScript.
     3. Remove line breaks
     search keyword: \n <-- RegExp
     replace text:  <-- Empty
+3. Run the macro.
+    ```shell
+    bun run scripts/parse-txt2types.ts processed/basic-features.txt
+    ```

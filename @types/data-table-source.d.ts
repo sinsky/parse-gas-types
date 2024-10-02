@@ -1,5 +1,5 @@
-interface DataTableSource{
-/**Return the data inside this object as a DataTable.
+interface DataTableSource {
+  /**Return the data inside this object as a DataTable.
 
 ```
 // Opens the spreadsheet file by its ID. If you created your script from a Google Sheets file,
@@ -23,4 +23,5 @@ const chart = Charts.newBarChart()
                   .setOption('title', 'Your Chart Title Here')
                   .build();
 ```
-@return the data as a datatable.*/getDataTable():DataTable;}
+@return the data as a datatable.*/ getDataTable(): DataTable;
+}

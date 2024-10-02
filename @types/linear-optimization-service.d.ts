@@ -1,7 +1,7 @@
-interface LinearOptimizationService{
-/**Status of the solver.*/Status:LinearOptimizationService._Status;
-/**Type of variables created by the solver.*/VariableType:LinearOptimizationService._VariableType;
-/**Creates an engine to to solve linear programs (potentially mixed-integer programs).
+interface LinearOptimizationService {
+  /**Status of the solver.*/ Status: LinearOptimizationService._Status;
+  /**Type of variables created by the solver.*/ VariableType: LinearOptimizationService._VariableType;
+  /**Creates an engine to to solve linear programs (potentially mixed-integer programs).
 
 ```
 // Creates a linear optimization engine.
@@ -10,17 +10,26 @@ engine.addVariable('x', 0, 10);
 
 // ...
 ```
-@return a linear optimization engine*/createEngine():LinearOptimizationService.LinearOptimizationEngine;}module LinearOptimizationService{interface VariableType{}interface _VariableType{
-/**Type of variable that can take any real value.*/CONTINUOUS:VariableType;
-/**Type of variable that can only take integer values.*/INTEGER:VariableType;}interface Status{}interface _Status{
-/**Status when it failed to find a solution for unexpected reasons.*/ABNORMAL:Status;
-/**Status when a feasible (not necessarily optimal) solution has been found.*/FEASIBLE:Status;
-/**Status when the current model is unfeasible (has no solution).*/INFEASIBLE:Status;
-/**Status when the model is invalid.*/MODEL_INVALID:Status;
-/**Status when [`LinearOptimizationEngine.solve()`](https://developers.google.com/apps-script/reference/optimization/linear-optimization-engine.html#solve()) has not been called yet.*/NOT_SOLVED:Status;
-/**Status when an optimal solution has been found.*/OPTIMAL:Status;
-/**Status when the current model is unbound.*/UNBOUNDED:Status;}interface LinearOptimizationSolution{
-/**Gets the value of the objective function in the current solution.
+@return a linear optimization engine*/ createEngine(): LinearOptimizationService.LinearOptimizationEngine;
+}
+module LinearOptimizationService {
+  interface VariableType {}
+  interface _VariableType {
+    /**Type of variable that can take any real value.*/ CONTINUOUS: VariableType;
+    /**Type of variable that can only take integer values.*/ INTEGER: VariableType;
+  }
+  interface Status {}
+  interface _Status {
+    /**Status when it failed to find a solution for unexpected reasons.*/ ABNORMAL: Status;
+    /**Status when a feasible (not necessarily optimal) solution has been found.*/ FEASIBLE: Status;
+    /**Status when the current model is unfeasible (has no solution).*/ INFEASIBLE: Status;
+    /**Status when the model is invalid.*/ MODEL_INVALID: Status;
+    /**Status when [`LinearOptimizationEngine.solve()`](https://developers.google.com/apps-script/reference/optimization/linear-optimization-engine.html#solve()) has not been called yet.*/ NOT_SOLVED: Status;
+    /**Status when an optimal solution has been found.*/ OPTIMAL: Status;
+    /**Status when the current model is unbound.*/ UNBOUNDED: Status;
+  }
+  interface LinearOptimizationSolution {
+    /**Gets the value of the objective function in the current solution.
 
 ```
 var engine = LinearOptimizationService.createEngine();
@@ -34,8 +43,8 @@ engine.addVariable('x', 0, 10);
 var solution = engine.solve();
 Logger.log('ObjectiveValue: ' + solution.getObjectiveValue());
 ```
-@return the value of the objective function*/getObjectiveValue():number;
-/**Gets the status of the solution. Before solving a problem, the status will be `NOT_SOLVED`.
+@return the value of the objective function*/ getObjectiveValue(): number;
+    /**Gets the status of the solution. Before solving a problem, the status will be `NOT_SOLVED`.
 
 ```
 var engine = LinearOptimizationService.createEngine();
@@ -53,8 +62,8 @@ if (solution.getStatus() != LinearOptimizationService.Status.FEASIBLE &&
 }
 Logger.log('Status: ' + solution.getStatus());
 ```
-@return the status of the solver*/getStatus():LinearOptimizationService.Status;
-/**Gets the value of a variable in the solution created by the last call to [`LinearOptimizationEngine.solve()`](https://developers.google.com/apps-script/reference/optimization/linear-optimization-engine.html#solve()).
+@return the status of the solver*/ getStatus(): LinearOptimizationService.Status;
+    /**Gets the value of a variable in the solution created by the last call to [`LinearOptimizationEngine.solve()`](https://developers.google.com/apps-script/reference/optimization/linear-optimization-engine.html#solve()).
 
 ```
 var engine = LinearOptimizationService.createEngine();
@@ -69,8 +78,10 @@ var solution = engine.solve();
 Logger.log('Value of x: ' + solution.getVariableValue('x'));
 ```
 @param variableName name of the variable
-@return the value of the variable in the solution*/getVariableValue(variableName:string):number;
-/**Determines whether the solution is either feasible or optimal.
+@return the value of the variable in the solution*/ getVariableValue(
+      variableName: string,
+    ): number;
+    /**Determines whether the solution is either feasible or optimal.
 
 ```
 var engine = LinearOptimizationService.createEngine();
@@ -87,8 +98,10 @@ if (!solution.isValid()) {
 }
 ```
 @return `true` if the solution is valid ([`Status.FEASIBLE`](https://developers.google.com/apps-script/reference/optimization/status.html#FEASIBLE) or
-    [`Status.OPTIMAL`](https://developers.google.com/apps-script/reference/optimization/status.html#OPTIMAL)); `false` if not*/isValid():boolean;}interface LinearOptimizationEngine{
-/**Adds a new linear constraint in the model. The upper and lower bound of the constraint are
+    [`Status.OPTIMAL`](https://developers.google.com/apps-script/reference/optimization/status.html#OPTIMAL)); `false` if not*/ isValid(): boolean;
+  }
+  interface LinearOptimizationEngine {
+    /**Adds a new linear constraint in the model. The upper and lower bound of the constraint are
 defined at creation time. Coefficients for the variables are defined via calls to [`LinearOptimizationConstraint.setCoefficient(variableName, coefficient)`](https://developers.google.com/apps-script/reference/optimization/linear-optimization-constraint.html#setCoefficient(String,Number)).
 
 ```
@@ -106,8 +119,11 @@ constraint.setCoefficient('x', 2);
 ```
 @param lowerBound lower bound of the constraint
 @param upperBound upper bound of the constraint
-@return the constraint created*/addConstraint(lowerBound:number,upperBound:number):LinearOptimizationService.LinearOptimizationConstraint;
-/**Adds constraints in batch to the model.
+@return the constraint created*/ addConstraint(
+      lowerBound: number,
+      upperBound: number,
+    ): LinearOptimizationService.LinearOptimizationConstraint;
+    /**Adds constraints in batch to the model.
 
 ```
 var engine = LinearOptimizationService.createEngine();
@@ -127,8 +143,13 @@ engine.addConstraints([0.0, 1.0], [3.0, 5.0], [['x', 'y'], ['x', 'y']], [[1, 1],
 @param upperBounds upper bounds of the constraints
 @param variableNames the names of variables for which the coefficients are being set
 @param coefficients coefficients being set
-@return a linear optimization engine*/addConstraints(lowerBounds:number[],upperBounds:number[],variableNames:string[][],coefficients:number[][]):LinearOptimizationService.LinearOptimizationEngine;
-/**Adds a new continuous variable to the model. The variable is referenced by its name. The type
+@return a linear optimization engine*/ addConstraints(
+      lowerBounds: number[],
+      upperBounds: number[],
+      variableNames: string[][],
+      coefficients: number[][],
+    ): LinearOptimizationService.LinearOptimizationEngine;
+    /**Adds a new continuous variable to the model. The variable is referenced by its name. The type
 is set to [`VariableType.CONTINUOUS`](https://developers.google.com/apps-script/reference/optimization/variable-type.html#CONTINUOUS).
 
 ```
@@ -144,8 +165,12 @@ engine.addVariable('y', 0, 100);
 @param name unique name of the variable
 @param lowerBound lower bound of the variable
 @param upperBound upper bound of the variable
-@return a linear optimization engine*/addVariable(name:string,lowerBound:number,upperBound:number):LinearOptimizationService.LinearOptimizationEngine;
-/**Adds a new variable to the model. The variable is referenced by its name.
+@return a linear optimization engine*/ addVariable(
+      name: string,
+      lowerBound: number,
+      upperBound: number,
+    ): LinearOptimizationService.LinearOptimizationEngine;
+    /**Adds a new variable to the model. The variable is referenced by its name.
 
 ```
 var engine = LinearOptimizationService.createEngine();
@@ -161,8 +186,13 @@ engine.addVariable('y', 0, 100, LinearOptimizationService.VariableType.CONTINUOU
 @param lowerBound lower bound of the variable
 @param upperBound upper bound of the variable
 @param type type of the variable, can be one of [`VariableType`](https://developers.google.com/apps-script/reference/optimization/variable-type.html)
-@return a linear optimization engine*/addVariable(name:string,lowerBound:number,upperBound:number,type:LinearOptimizationService.VariableType):LinearOptimizationService.LinearOptimizationEngine;
-/**Adds a new variable to the model. The variable is referenced by its name.
+@return a linear optimization engine*/ addVariable(
+      name: string,
+      lowerBound: number,
+      upperBound: number,
+      type: LinearOptimizationService.VariableType,
+    ): LinearOptimizationService.LinearOptimizationEngine;
+    /**Adds a new variable to the model. The variable is referenced by its name.
 
 ```
 var engine = LinearOptimizationService.createEngine();
@@ -181,8 +211,14 @@ engine.addVariable('y', 0, 100, LinearOptimizationService.VariableType.CONTINUOU
 @param upperBound upper bound of the variable
 @param type type of the variable, can be one of [`VariableType`](https://developers.google.com/apps-script/reference/optimization/variable-type.html)
 @param objectiveCoefficient objective coefficient of the variable
-@return a linear optimization engine*/addVariable(name:string,lowerBound:number,upperBound:number,type:LinearOptimizationService.VariableType,objectiveCoefficient:number):LinearOptimizationService.LinearOptimizationEngine;
-/**Adds variables in batch to the model. The variables are referenced by their names.
+@return a linear optimization engine*/ addVariable(
+      name: string,
+      lowerBound: number,
+      upperBound: number,
+      type: LinearOptimizationService.VariableType,
+      objectiveCoefficient: number,
+    ): LinearOptimizationService.LinearOptimizationEngine;
+    /**Adds variables in batch to the model. The variables are referenced by their names.
 
 ```
 var engine = LinearOptimizationService.createEngine();
@@ -198,8 +234,14 @@ engine.addVariables(['x', 'y'], [0, 0], [1, 100],
 @param upperBounds upper bounds of the variables
 @param types types of the variables, can be one of [`VariableType`](https://developers.google.com/apps-script/reference/optimization/variable-type.html)
 @param objectiveCoefficients objective coefficients of the variables
-@return a linear optimization engine*/addVariables(names:string[],lowerBounds:number[],upperBounds:number[],types:LinearOptimizationService.VariableType[],objectiveCoefficients:number[]):LinearOptimizationService.LinearOptimizationEngine;
-/**Sets the optimization direction to maximizing the linear objective function.
+@return a linear optimization engine*/ addVariables(
+      names: string[],
+      lowerBounds: number[],
+      upperBounds: number[],
+      types: LinearOptimizationService.VariableType[],
+      objectiveCoefficients: number[],
+    ): LinearOptimizationService.LinearOptimizationEngine;
+    /**Sets the optimization direction to maximizing the linear objective function.
 
 ```
 var engine = LinearOptimizationService.createEngine();
@@ -214,8 +256,8 @@ engine.setObjectiveCoefficient('y', 5);
 // We want to maximize.
 engine.setMaximization();
 ```
-@return a linear optimization engine*/setMaximization():LinearOptimizationService.LinearOptimizationEngine;
-/**Sets the optimization direction to minimizing the linear objective function.
+@return a linear optimization engine*/ setMaximization(): LinearOptimizationService.LinearOptimizationEngine;
+    /**Sets the optimization direction to minimizing the linear objective function.
 
 ```
 var engine = LinearOptimizationService.createEngine();
@@ -230,8 +272,8 @@ engine.setObjectiveCoefficient('y', 5);
 // We want to minimize
 engine.setMinimization();
 ```
-@return a linear optimization engine*/setMinimization():LinearOptimizationService.LinearOptimizationEngine;
-/**Sets the coefficient of a variable in the linear objective function.
+@return a linear optimization engine*/ setMinimization(): LinearOptimizationService.LinearOptimizationEngine;
+    /**Sets the coefficient of a variable in the linear objective function.
 
 ```
 var engine = LinearOptimizationService.createEngine();
@@ -245,8 +287,11 @@ engine.setObjectiveCoefficient('y', 5);
 ```
 @param variableName name of variable for which the coefficient is being set
 @param coefficient coefficient of the variable in the objective function
-@return a linear optimization engine*/setObjectiveCoefficient(variableName:string,coefficient:number):LinearOptimizationService.LinearOptimizationEngine;
-/**Solves the current linear program with the default deadline of 30 seconds. Returns the solution found.
+@return a linear optimization engine*/ setObjectiveCoefficient(
+      variableName: string,
+      coefficient: number,
+    ): LinearOptimizationService.LinearOptimizationEngine;
+    /**Solves the current linear program with the default deadline of 30 seconds. Returns the solution found.
 
 ```
 var engine = LinearOptimizationService.createEngine();
@@ -263,8 +308,8 @@ if (!solution.isValid()) {
 }
 Logger.log('Value of x: ' + solution.getVariableValue('x'));
 ```
-@return solution of the optimization*/solve():LinearOptimizationService.LinearOptimizationSolution;
-/**Solves the current linear program. Returns the solution found. and if it is an optimal
+@return solution of the optimization*/ solve(): LinearOptimizationService.LinearOptimizationSolution;
+    /**Solves the current linear program. Returns the solution found. and if it is an optimal
 solution.
 
 ```
@@ -283,8 +328,12 @@ if (!solution.isValid()) {
 Logger.log('Value of x: ' + solution.getVariableValue('x'));
 ```
 @param seconds deadline for solving the problem, in seconds; the maximum deadline is 300 seconds
-@return solution of the optimization*/solve(seconds:number):LinearOptimizationService.LinearOptimizationSolution;}interface LinearOptimizationConstraint{
-/**Sets the coefficient of a variable in the constraint. By default, variables have a coefficient
+@return solution of the optimization*/ solve(
+      seconds: number,
+    ): LinearOptimizationService.LinearOptimizationSolution;
+  }
+  interface LinearOptimizationConstraint {
+    /**Sets the coefficient of a variable in the constraint. By default, variables have a coefficient
 of 0.
 
 ```
@@ -299,4 +348,10 @@ constraint.setCoefficient('x', 2);
 ```
 @param variableName the name of variable for which the coefficient is being set
 @param coefficient coefficient being set
-@return this linear optimization constraint*/setCoefficient(variableName:string,coefficient:number):LinearOptimizationService.LinearOptimizationConstraint;}}const LinearOptimizationService:LinearOptimizationService;
+@return this linear optimization constraint*/ setCoefficient(
+      variableName: string,
+      coefficient: number,
+    ): LinearOptimizationService.LinearOptimizationConstraint;
+  }
+}
+const LinearOptimizationService: LinearOptimizationService;

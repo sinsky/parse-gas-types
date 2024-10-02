@@ -1,9 +1,9 @@
-interface Ui{
-/**An enum representing predetermined, localized dialog buttons returned by an [alert](https://developers.google.com/apps-script/reference/base/ui.html#alert(String)) or [`PromptResponse.getSelectedButton()`](https://developers.google.com/apps-script/reference/base/prompt-response.html#getSelectedButton()) to indicate
-which button in a dialog the user clicked.*/Button:_Button;
-/**An enum representing predetermined, localized sets of one or more dialog buttons that can be
-added to an [alert](https://developers.google.com/apps-script/reference/base/ui.html#alert(String,ButtonSet)) or a [prompt](https://developers.google.com/apps-script/reference/base/ui.html#prompt(String,ButtonSet)).*/ButtonSet:_ButtonSet;
-/**Opens a dialog box in the user's editor with the given message and an "OK" button. This method
+interface Ui {
+  /**An enum representing predetermined, localized dialog buttons returned by an [alert](https://developers.google.com/apps-script/reference/base/ui.html#alert(String)) or [`PromptResponse.getSelectedButton()`](https://developers.google.com/apps-script/reference/base/prompt-response.html#getSelectedButton()) to indicate
+which button in a dialog the user clicked.*/ Button: _Button;
+  /**An enum representing predetermined, localized sets of one or more dialog buttons that can be
+added to an [alert](https://developers.google.com/apps-script/reference/base/ui.html#alert(String,ButtonSet)) or a [prompt](https://developers.google.com/apps-script/reference/base/ui.html#prompt(String,ButtonSet)).*/ ButtonSet: _ButtonSet;
+  /**Opens a dialog box in the user's editor with the given message and an "OK" button. This method
 suspends the server-side script while the dialog is open. The script resumes after the user
 dismisses the dialog, but [`Jdbc`](https://developers.google.com/apps-script/reference/base/../jdbc/jdbc.html)
 connections and [`LockService`](https://developers.google.com/apps-script/reference/base/../lock/lock-service.html) locks don't
@@ -15,8 +15,8 @@ persist across the suspension. For more information, see the [guide to dialogs a
 SpreadsheetApp.getUi().alert('Hello, world');
 ```
 @param prompt The message to display in the dialog box.
-@return The button the user clicked.*/alert(prompt:string):Button;
-/**Opens a dialog box in the user's editor with the given message and set of buttons. This method
+@return The button the user clicked.*/ alert(prompt: string): Button;
+  /**Opens a dialog box in the user's editor with the given message and set of buttons. This method
 suspends the server-side script while the dialog is open. The script resumes after the user
 dismisses the dialog, but [`Jdbc`](https://developers.google.com/apps-script/reference/base/../jdbc/jdbc.html)
 connections and [`LockService`](https://developers.google.com/apps-script/reference/base/../lock/lock-service.html) locks don't
@@ -37,8 +37,11 @@ if (response == ui.Button.YES) {
 ```
 @param prompt The message to display in the dialog box.
 @param buttons The button set to display in the dialog box.
-@return The button the user clicked.*/alert(prompt:string,buttons:ButtonSet):Button;
-/**Opens a dialog box in the user's editor with the given title, message, and set of buttons. This
+@return The button the user clicked.*/ alert(
+    prompt: string,
+    buttons: ButtonSet,
+  ): Button;
+  /**Opens a dialog box in the user's editor with the given title, message, and set of buttons. This
 method suspends the server-side script while the dialog is open. The script resumes after the
 user dismisses the dialog, but [`Jdbc`](https://developers.google.com/apps-script/reference/base/../jdbc/jdbc.html)
 connections and [`LockService`](https://developers.google.com/apps-script/reference/base/../lock/lock-service.html) locks don't
@@ -60,8 +63,12 @@ if (response == ui.Button.YES) {
 @param title The title to display above the dialog box.
 @param prompt The message to display in the dialog box.
 @param buttons The button set to display in the dialog box.
-@return The button the user clicked.*/alert(title:string,prompt:string,buttons:ButtonSet):Button;
-/**Creates a builder that can be used to insert a sub-menu into the editor's Extensions menu. The
+@return The button the user clicked.*/ alert(
+    title: string,
+    prompt: string,
+    buttons: ButtonSet,
+  ): Button;
+  /**Creates a builder that can be used to insert a sub-menu into the editor's Extensions menu. The
 menu isn't actually be updated until [`Menu.addToUi()`](https://developers.google.com/apps-script/reference/base/menu.html#addToUi()) is called. If the script is running
 as an add-on, the sub-menu name matches the add-on's name in the web store; if the script is [bound](/apps-script/scripts_containers) to the document directly, the sub-menu name
 matches the script's name. For more information, see the [guide to menus](/apps-script/guides/menus).
@@ -75,8 +82,8 @@ function onOpen(e) {
       .addToUi();
 }
 ```
-@return The new menu builder.*/createAddonMenu():Menu;
-/**Creates a builder that can be used to add a menu to the editor's user interface. The menu isn't
+@return The new menu builder.*/ createAddonMenu(): Menu;
+  /**Creates a builder that can be used to add a menu to the editor's user interface. The menu isn't
 actually be added until [`Menu.addToUi()`](https://developers.google.com/apps-script/reference/base/menu.html#addToUi()) is called. For more information, see the [guide to menus](/apps-script/guides/menus). The label for a top-level menu should be
 in headline case (all major words capitalized), although the label for a sub-menu should be in
 sentence case (only the first word capitalized). If the script is published as an [add-on](/gsuite/add-ons/overview), the `caption` parameter is ignored and the
@@ -97,8 +104,8 @@ function onOpen(e) {
 ```
 @param caption The label for the menu, with all major words capitalized for a top-level menu,
     or only the first word capitalized for a sub-menu.
-@return The new menu builder.*/createMenu(caption:string):Menu;
-/**Opens an input dialog box in the user's editor with the given message and an "OK" button. This
+@return The new menu builder.*/ createMenu(caption: string): Menu;
+  /**Opens an input dialog box in the user's editor with the given message and an "OK" button. This
 method suspends the server-side script while the dialog is open. The script resumes after the
 user dismisses the dialog, but [`Jdbc`](https://developers.google.com/apps-script/reference/base/../jdbc/jdbc.html)
 connections and [`LockService`](https://developers.google.com/apps-script/reference/base/../lock/lock-service.html) locks don't
@@ -118,8 +125,10 @@ if (response.getSelectedButton() == ui.Button.OK) {
 }
 ```
 @param prompt The message to display in the dialog box.
-@return A representation of the user's response.*/prompt(prompt:string):PromptResponse;
-/**Opens an input dialog box in the user's editor with the given message and set of buttons. This
+@return A representation of the user's response.*/ prompt(
+    prompt: string,
+  ): PromptResponse;
+  /**Opens an input dialog box in the user's editor with the given message and set of buttons. This
 method suspends the server-side script while the dialog is open. The script resumes after the
 user dismisses the dialog, but [`Jdbc`](https://developers.google.com/apps-script/reference/base/../jdbc/jdbc.html)
 connections and [`LockService`](https://developers.google.com/apps-script/reference/base/../lock/lock-service.html) locks don't
@@ -142,8 +151,11 @@ if (response.getSelectedButton() == ui.Button.YES) {
 ```
 @param prompt The message to display in the dialog box.
 @param buttons The button set to display in the dialog box.
-@return A representation of the user's response.*/prompt(prompt:string,buttons:ButtonSet):PromptResponse;
-/**Opens an input dialog box in the user's editor with the given title, message, and set of
+@return A representation of the user's response.*/ prompt(
+    prompt: string,
+    buttons: ButtonSet,
+  ): PromptResponse;
+  /**Opens an input dialog box in the user's editor with the given title, message, and set of
 buttons. This method suspends the server-side script while the dialog is open. The script
 resumes after the user dismisses the dialog, but [`Jdbc`](https://developers.google.com/apps-script/reference/base/../jdbc/jdbc.html) connections and [`LockService`](https://developers.google.com/apps-script/reference/base/../lock/lock-service.html) locks don't persist across the
 suspension. For more information, see the [guide to
@@ -167,8 +179,12 @@ if (response.getSelectedButton() == ui.Button.YES) {
 @param title The title to display above the dialog box.
 @param prompt The message to display in the dialog box.
 @param buttons The button set to display in the dialog box.
-@return A representation of the user's response.*/prompt(title:string,prompt:string,buttons:ButtonSet):PromptResponse;
-/**Opens a dialog box in the user's editor with custom client-side content. This method does
+@return A representation of the user's response.*/ prompt(
+    title: string,
+    prompt: string,
+    buttons: ButtonSet,
+  ): PromptResponse;
+  /**Opens a dialog box in the user's editor with custom client-side content. This method does
 _not_ suspend the server-side script while the dialog is open. To communicate with the
 server-side script, the client-side component must make asynchronous callbacks using the [`google.script`](/apps-script/guides/html/communication) API for [`HtmlService`](https://developers.google.com/apps-script/reference/base/../html/html-service.html). To close the dialog
 programmatically, call [
@@ -187,8 +203,10 @@ SpreadsheetApp.getUi().showDialog(htmlOutput);
 ```
 @deprecated
 @param userInterface An [`HtmlOutput`](https://developers.google.com/apps-script/reference/base/../html/html-output.html)
-    representing the interface to display.*/showDialog(userInterface:Object):void;
-/**Opens a modal dialog box in the user's editor with custom client-side content. This method does
+    representing the interface to display.*/ showDialog(
+    userInterface: Object,
+  ): void;
+  /**Opens a modal dialog box in the user's editor with custom client-side content. This method does
 _not_ suspend the server-side script while the dialog is open. To communicate with the
 server-side script, the client-side component must make asynchronous callbacks using the [`google.script`](/apps-script/guides/html/communication) API for [`HtmlService`](https://developers.google.com/apps-script/reference/base/../html/html-service.html). To close the dialog
 programmatically, call [
@@ -211,8 +229,11 @@ SpreadsheetApp.getUi().showModalDialog(htmlOutput, 'My add-on');
 @param userInterface An [`HtmlOutput`](https://developers.google.com/apps-script/reference/base/../html/html-output.html)
     representing the interface to display.
 @param title The title of the dialog; overrides any title set by calling `setTitle()` on
-    the `userInterface` object.*/showModalDialog(userInterface:Object,title:string):void;
-/**Opens a modeless dialog box in the user's editor with custom client-side content. This method
+    the `userInterface` object.*/ showModalDialog(
+    userInterface: Object,
+    title: string,
+  ): void;
+  /**Opens a modeless dialog box in the user's editor with custom client-side content. This method
 does _not_ suspend the server-side script while the dialog is open. To communicate with
 the server-side script, the client-side component must make asynchronous callbacks using the [`google.script`](/apps-script/guides/html/communication) API for [`HtmlService`](https://developers.google.com/apps-script/reference/base/../html/html-service.html). To close the dialog
 programmatically, call [
@@ -235,8 +256,11 @@ SpreadsheetApp.getUi().showModelessDialog(htmlOutput, 'My add-on');
 @param userInterface An [`HtmlOutput`](https://developers.google.com/apps-script/reference/base/../html/html-output.html)
     representing the interface to display.
 @param title The title of the dialog; overrides any title set by calling `setTitle()` on
-    the `userInterface` object.*/showModelessDialog(userInterface:Object,title:string):void;
-/**Opens a sidebar in the user's editor with custom client-side content. This method does
+    the `userInterface` object.*/ showModelessDialog(
+    userInterface: Object,
+    title: string,
+  ): void;
+  /**Opens a sidebar in the user's editor with custom client-side content. This method does
 _not_ suspend the server-side script while the sidebar is open. To communicate with the
 server-side script, the client-side component must make asynchronous callbacks using the [`google.script`](/apps-script/guides/html/communication) API for [`HtmlService`](https://developers.google.com/apps-script/reference/base/../html/html-service.html). To close the sidebar
 programmatically, call [
@@ -256,4 +280,7 @@ var htmlOutput = HtmlService
 SpreadsheetApp.getUi().showSidebar(htmlOutput);
 ```
 @param userInterface An [`HtmlOutput`](https://developers.google.com/apps-script/reference/base/../html/html-output.html)
-    representing the interface to display.*/showSidebar(userInterface:Object):void;}
+    representing the interface to display.*/ showSidebar(
+    userInterface: Object,
+  ): void;
+}

@@ -1,5 +1,5 @@
-interface MailApp{
-/**Returns the number of recipients you can send emails to for the rest of the day. The returned
+interface MailApp {
+  /**Returns the number of recipients you can send emails to for the rest of the day. The returned
 value is valid for the current execution and might vary between executions.
 
 Quotas are based on the number of email recipients. For specific quota information, see [Quotas for Google
@@ -9,8 +9,8 @@ Services](https://developers.google.com/apps-script/guides/services/quotas).
 var emailQuotaRemaining = MailApp.getRemainingDailyQuota();
 Logger.log("Remaining email quota: " + emailQuotaRemaining);
 ```
-@return The number of emails remaining that the script can send.*/getRemainingDailyQuota():Integer;
-/**Sends an email message. This variation of the method is much more flexible, allowing for many
+@return The number of emails remaining that the script can send.*/ getRemainingDailyQuota(): Integer;
+  /**Sends an email message. This variation of the method is much more flexible, allowing for many
 more options.
 
 ```
@@ -41,8 +41,10 @@ function inlineImage() {
   });
 }
 ```
-@param message a JavaScript object representing an email message*/sendEmail(message:Object):void;
-/**Sends an email message.
+@param message a JavaScript object representing an email message*/ sendEmail(
+    message: Object,
+  ): void;
+  /**Sends an email message.
 
 ```
 MailApp.sendEmail("recipient@example.com",
@@ -51,8 +53,12 @@ MailApp.sendEmail("recipient@example.com",
 ```
 @param recipient the addresses of the recipients, separated by commas
 @param subject the subject line
-@param body the body of the email*/sendEmail(recipient:string,subject:string,body:string):void;
-/**Sends an email message with optional arguments.
+@param body the body of the email*/ sendEmail(
+    recipient: string,
+    subject: string,
+    body: string,
+  ): void;
+  /**Sends an email message with optional arguments.
 
 ```
 // Send an email with two attachments: a file from Google Drive (as a PDF) and an HTML file.
@@ -66,8 +72,13 @@ MailApp.sendEmail('mike@example.com', 'Attachment example', 'Two files are attac
 @param recipient the addresses of the recipients, separated by commas
 @param subject the subject line
 @param body the body of the email
-@param options a JavaScript object that specifies advanced parameters, as listed below*/sendEmail(recipient:string,subject:string,body:string,options:Object):void;
-/**Sends an email message. This method allows a user to easily specify a Reply-To address for the
+@param options a JavaScript object that specifies advanced parameters, as listed below*/ sendEmail(
+    recipient: string,
+    subject: string,
+    body: string,
+    options: Object,
+  ): void;
+  /**Sends an email message. This method allows a user to easily specify a Reply-To address for the
 sent message that can differ from the sender.
 
 ```
@@ -79,4 +90,11 @@ MailApp.sendEmail("recipient@example.com",
 @param to the addresses of the recipients, separated by commas
 @param replyTo the reply-to address
 @param subject the subject line
-@param body the body of the email in plain text*/sendEmail(to:string,replyTo:string,subject:string,body:string):void;}const MailApp:MailApp;
+@param body the body of the email in plain text*/ sendEmail(
+    to: string,
+    replyTo: string,
+    subject: string,
+    body: string,
+  ): void;
+}
+const MailApp: MailApp;

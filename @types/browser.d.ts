@@ -1,5 +1,6 @@
-interface Browser{Buttons:_ButtonSet;
-/**Pops up a dialog box with a text input box in the user's browser.
+interface Browser {
+  Buttons: _ButtonSet;
+  /**Pops up a dialog box with a text input box in the user's browser.
 
 The inputBox method raises a client-side input box that displays the given prompt to the
 user.Note that this function causes the server-side script to be suspended.It resumes
@@ -13,8 +14,10 @@ var name = Browser.inputBox('Enter your name ');
 
 This method is not recommended. Instead, use a [UI prompt](/apps-script/guides/dialogs#prompt_dialogs).
 @param prompt The text to be displayed in the dialog box.
-@return The text entered by the user (or 'cancel ' for a canceled or dismissed dialog).*/inputBox(prompt:string):string;
-/**Pops up a dialog box with a text input box in the user's browser.
+@return The text entered by the user (or 'cancel ' for a canceled or dismissed dialog).*/ inputBox(
+    prompt: string,
+  ): string;
+  /**Pops up a dialog box with a text input box in the user's browser.
 
 The inputBox method raises a client-side input box that displays the given prompt to the
 user,and offers a choice of buttons to be displayed.Note that this function causes the
@@ -29,8 +32,11 @@ var name = Browser.inputBox('Enter your name ', Browser.Buttons.OK_CANCEL);
 This method is not recommended. Instead, use a [UI prompt](/apps-script/guides/dialogs#prompt_dialogs).
 @param prompt The text to be displayed in the dialog box.
 @param buttons The type of button set to use.
-@return The text entered by the user (or 'cancel ' for a canceled or dismissed dialog).*/inputBox(prompt:string,buttons:ButtonSet):string;
-/**Pops up a dialog box with a text input box in the user's browser.
+@return The text entered by the user (or 'cancel ' for a canceled or dismissed dialog).*/ inputBox(
+    prompt: string,
+    buttons: ButtonSet,
+  ): string;
+  /**Pops up a dialog box with a text input box in the user's browser.
 
 The inputBox method raises a client side input box with the given title,that displays the
 given prompt to the user,and offers a choice of buttons to be displayed.Note that this
@@ -46,8 +52,12 @@ This method is not recommended. Instead, use a [UI prompt](/apps-script/guides/d
 @param title The title for the dialog box.
 @param prompt The text to be displayed in the dialog box.
 @param buttons The type of button set to use.
-@return The text entered by the user (or 'cancel ' for a canceled or dismissed dialog).*/inputBox(title:string,prompt:string,buttons:ButtonSet):string;
-/**Pops up a dialog box with the given message and an OK button in the user's browser.
+@return The text entered by the user (or 'cancel ' for a canceled or dismissed dialog).*/ inputBox(
+    title: string,
+    prompt: string,
+    buttons: ButtonSet,
+  ): string;
+  /**Pops up a dialog box with the given message and an OK button in the user's browser.
 
 The msgBox method raises a client-side message box that displays the given message to the
 user.Note that this method causes the server-side script to be suspended.It resumes
@@ -62,8 +72,8 @@ Browser.msgBox('hello world ');
 This method is not recommended. Instead, use a [UI alert](/apps-script/guides/dialogs#alert_dialogs) dialog.
 @param prompt The text to be displayed in the dialog box.
 @return The lower case text of the button that is clicked by the user (or 'cancel ' for a
-    dismissed dialog).*/msgBox(prompt:string):string;
-/**Pops up a dialog box with the given message and specified buttons in the user's browser.
+    dismissed dialog).*/ msgBox(prompt: string): string;
+  /**Pops up a dialog box with the given message and specified buttons in the user's browser.
 
 The msgBox method raises a client-side message box that displays the given message to the
 user,and offers a choice of buttons to be displayed.Note that this method causes the
@@ -79,8 +89,8 @@ This method is not recommended. Instead, use a [UI alert](/apps-script/guides/di
 @param prompt The text to be displayed in the dialog box.
 @param buttons The type of button set to use.
 @return The lower case text of the button that is clicked by the user (or 'cancel ' for a
-    dismissed dialog).*/msgBox(prompt:string,buttons:ButtonSet):string;
-/**Pops up a dialog box with the given title, message and specified buttons in the user's browser.
+    dismissed dialog).*/ msgBox(prompt: string, buttons: ButtonSet): string;
+  /**Pops up a dialog box with the given title, message and specified buttons in the user's browser.
 
 The msgBox method raises a client-side message box with the given title,that displays the
 given message to the user,and offers a choice of buttons to be displayed.Note that this
@@ -98,4 +108,10 @@ This method is not recommended. Instead, use a [UI alert](/apps-script/guides/di
 @param prompt The text to be displayed in the dialog box.
 @param buttons The type of button set to use.
 @return The lower case text of the button that is clicked by the user (or 'cancel ' for a
-    dismissed dialog).*/msgBox(title:string,prompt:string,buttons:ButtonSet):string;}const Browser:Browser;
+    dismissed dialog).*/ msgBox(
+    title: string,
+    prompt: string,
+    buttons: ButtonSet,
+  ): string;
+}
+const Browser: Browser;

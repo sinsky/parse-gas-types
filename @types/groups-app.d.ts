@@ -1,5 +1,6 @@
-interface GroupsApp{Role:GroupsApp._Role;
-/**Retrieves the group having the specified email address. Throws an exception if the group does
+interface GroupsApp {
+  Role: GroupsApp._Role;
+  /**Retrieves the group having the specified email address. Throws an exception if the group does
 not exist or if you do not have permission to see it.
 
 Here is an example that gets a group by its email address and outputs whether the current
@@ -16,8 +17,10 @@ else {
 }
 ```
 @param email The email address of the group to retrieve.
-@return The group with the specified email address.*/getGroupByEmail(email:string):GroupsApp.Group;
-/**Retrieves all the groups of which you are a direct member (or a pending member). This is an
+@return The group with the specified email address.*/ getGroupByEmail(
+    email: string,
+  ): GroupsApp.Group;
+  /**Retrieves all the groups of which you are a direct member (or a pending member). This is an
 empty list if you are not in any groups. Throws an exception if the group does not exist or if
 you do not have permission to see it.
 
@@ -41,16 +44,22 @@ sent to the "parent" group A, you are not actually subscribed to that group.
 
 You can use [`Group.getRole(email)`](https://developers.google.com/apps-script/reference/groups/group.html#getRole(String)) to determine if you are an existing or pending
 member of the returned groups.
-@return The list of groups of which the user is a direct member.*/getGroups():GroupsApp.Group[];}module GroupsApp{interface Role{}interface _Role{
-/**A user who has been banned from a group and cannot attempt to join it.*/BANNED:Role;
-/**A user who has been invited to join a group by an owner or manager of the group but who has not
-yet accepted the invitation.*/INVITED:Role;
-/**The manager of a group.*/MANAGER:Role;
-/**A user who is a member of this group but is neither an owner nor a manager.*/MEMBER:Role;
-/**The owner of a group.*/OWNER:Role;
-/**A user who has requested to join a group but who has not yet been approved by an owner or
-manager.*/PENDING:Role;}interface Group{
-/**Gets this group's email address.
+@return The list of groups of which the user is a direct member.*/ getGroups(): GroupsApp.Group[];
+}
+module GroupsApp {
+  interface Role {}
+  interface _Role {
+    /**A user who has been banned from a group and cannot attempt to join it.*/ BANNED: Role;
+    /**A user who has been invited to join a group by an owner or manager of the group but who has not
+yet accepted the invitation.*/ INVITED: Role;
+    /**The manager of a group.*/ MANAGER: Role;
+    /**A user who is a member of this group but is neither an owner nor a manager.*/ MEMBER: Role;
+    /**The owner of a group.*/ OWNER: Role;
+    /**A user who has requested to join a group but who has not yet been approved by an owner or
+manager.*/ PENDING: Role;
+  }
+  interface Group {
+    /**Gets this group's email address.
 
 This example lists the email address of all the groups the user belongs to.
 
@@ -62,8 +71,8 @@ function listMyGroupEmails() {
   }
 }
 ```
-@return The group's email address.*/getEmail():string;
-/**Retrieves the direct child groups of the group. Throws an exception if you do not have
+@return The group's email address.*/ getEmail(): string;
+    /**Retrieves the direct child groups of the group. Throws an exception if you do not have
 permission to view the group's member list.
 
 In addition to this method, you can use the [Admin SDK Directory](/apps-script/advanced/admin-sdk-directory) advanced service to
@@ -81,8 +90,8 @@ function listGroupMembers() {
   }
 }
 ```
-@return All the direct child groups of the group.*/getGroups():GroupsApp.Group[];
-/**Retrieves a user's role in the context of the group. A user who is a direct member of a group
+@return All the direct child groups of the group.*/ getGroups(): GroupsApp.Group[];
+    /**Retrieves a user's role in the context of the group. A user who is a direct member of a group
 has exactly one role within that group. Throws an exception if the user is not a member of the
 group or if you do not have permission to view the group's member list.
 
@@ -100,8 +109,10 @@ for (var i = 0; i < users.length; i++) {
 }
 ```
 @param email A user's email address.
-@return That user's role within the group.*/getRole(email:string):GroupsApp.Role;
-/**Retrieves a user's role in the context of the group. A user who is a direct member of a group
+@return That user's role within the group.*/ getRole(
+      email: string,
+    ): GroupsApp.Role;
+    /**Retrieves a user's role in the context of the group. A user who is a direct member of a group
 has exactly one role within that group. Throws an exception if the user is not a member of the
 group or if you do not have permission to view the group's member list.
 
@@ -119,8 +130,10 @@ for (var i = 0; i < users.length; i++) {
 }
 ```
 @param user The user whose role to retrieve.
-@return That user's role within the group.*/getRole(user:User):GroupsApp.Role;
-/**Retrieves users' roles in the context of the group. A user who is a direct member of a group
+@return That user's role within the group.*/ getRole(
+      user: User,
+    ): GroupsApp.Role;
+    /**Retrieves users' roles in the context of the group. A user who is a direct member of a group
 has exactly one role within that group. Throws an exception if any user is not a member of the
 group or if you do not have permission to view the group's member list.
 
@@ -138,8 +151,10 @@ for (var i = 0; i < users.length; i++) {
 }
 ```
 @param users The users whose roles are requested.
-@return The roles of those users within the group.*/getRoles(users:User[]):GroupsApp.Role[];
-/**Gets the direct members of the group that have a known corresponding Google account. Throws an
+@return The roles of those users within the group.*/ getRoles(
+      users: User[],
+    ): GroupsApp.Role[];
+    /**Gets the direct members of the group that have a known corresponding Google account. Throws an
 exception if you don't have permission to view the group's member list or the member emails.
 
 Note: if you are a member of a group B which is itself a member of another group A then you
@@ -164,8 +179,8 @@ function listGroupMembers() {
 
 In addition to this method, you can use the [Admin SDK Directory](/apps-script/advanced/admin-sdk-directory) advanced service to
 retrieve group members in a domain.
-@return All the direct members of the group.*/getUsers():User[];
-/**Tests if a group is a direct member of this group. The method does not return `true` if
+@return All the direct members of the group.*/ getUsers(): User[];
+    /**Tests if a group is a direct member of this group. The method does not return `true` if
 the tested group is nested more than one level below this group. Throws an exception if you do
 not have permission to view the group's member list.
 
@@ -177,8 +192,10 @@ if (group.hasGroup(childGroup)) {
 }
 ```
 @param group The group whose membership to test.
-@return `true` if that group is a child group of this group; `false` otherwise.*/hasGroup(group:GroupsApp.Group):boolean;
-/**Tests if a group is a direct member of this group. The method does not return `true` if
+@return `true` if that group is a child group of this group; `false` otherwise.*/ hasGroup(
+      group: GroupsApp.Group,
+    ): boolean;
+    /**Tests if a group is a direct member of this group. The method does not return `true` if
 the tested group is nested more than one level below this group. Throws an exception if you do
 not have permission to view the group's member list.
 
@@ -189,8 +206,10 @@ if (group.hasGroup("childgroup@googlegroups.com")) {
 }
 ```
 @param email A group's email address.
-@return `true` if that group is a child group of this group; `false` otherwise.*/hasGroup(email:string):boolean;
-/**Tests if a user is a direct member of the group. Throws an exception if you do not have
+@return `true` if that group is a child group of this group; `false` otherwise.*/ hasGroup(
+      email: string,
+    ): boolean;
+    /**Tests if a user is a direct member of the group. Throws an exception if you do not have
 permission to view the group's member list.
 
 Here's an example which checks if the current user is a member of a group:
@@ -203,8 +222,10 @@ if (group.hasUser(currentUser.getEmail())) {
 }
 ```
 @param email A user's email address.
-@return `true` if that user is a member of the group; `false` otherwise.*/hasUser(email:string):boolean;
-/**Tests if a user is a direct member of the group. Throws an exception if you do not have
+@return `true` if that user is a member of the group; `false` otherwise.*/ hasUser(
+      email: string,
+    ): boolean;
+    /**Tests if a user is a direct member of the group. Throws an exception if you do not have
 permission to view the group's member list.
 
 Here's an example which checks if the current user is a member of a group:
@@ -217,4 +238,9 @@ if (group.hasUser(currentUser)) {
 }
 ```
 @param user The user whose membership to test.
-@return `true` if that user is a member of the group; `false` otherwise.*/hasUser(user:User):boolean;}}const GroupsApp:GroupsApp;
+@return `true` if that user is a member of the group; `false` otherwise.*/ hasUser(
+      user: User,
+    ): boolean;
+  }
+}
+const GroupsApp: GroupsApp;

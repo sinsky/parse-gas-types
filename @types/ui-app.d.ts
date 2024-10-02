@@ -1,5 +1,5 @@
-interface UiApp{
-/**Create a new UiInstance, which you can use to build a UI.
+interface UiApp {
+  /**Create a new UiInstance, which you can use to build a UI.
 
 Use this in the entry point of your app to create a UI. For example:
 
@@ -23,8 +23,8 @@ function onClick(e) {
 
 Note that you cannot return a new UiInstance in an event handler from an existing
 UiInstance.
-@deprecated*/createApplication():void;
-/**Gets the active UiInstance.
+@deprecated*/ createApplication(): void;
+  /**Gets the active UiInstance.
 
 Use this in the context of an event handler to interact with the existing UI. For example:
 
@@ -41,7 +41,9 @@ function onClick(e) {
   return app;  // If you don't return the UiInstance, the change won't happen
 }
 ```
-@deprecated*/getActiveApplication():void;
-/**Return the browser user-agent string, so that you can tailor your app as needed.
+@deprecated*/ getActiveApplication(): void;
+  /**Return the browser user-agent string, so that you can tailor your app as needed.
 @deprecated
-@return the user-agent string.*/getUserAgent():string;}const UiApp:UiApp;
+@return the user-agent string.*/ getUserAgent(): string;
+}
+const UiApp: UiApp;

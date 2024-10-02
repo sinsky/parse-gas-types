@@ -1,1 +1,1 @@
-interface DataTable{}
+interface DataTable {}

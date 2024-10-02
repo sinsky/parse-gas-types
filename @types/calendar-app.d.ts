@@ -1,11 +1,11 @@
-interface CalendarApp{
-/**An enum representing the named colors available in the Calendar service.*/Color:CalendarApp._Color;
-/**An enum representing the named event colors available in the Calendar service.*/EventColor:CalendarApp._EventColor;
-/**An enum representing the statuses a guest can have for an event.*/GuestStatus:CalendarApp._GuestStatus;
-/**An enum representing the months of the year.*/Month:_Month;
-/**An enum representing the visibility of an event.*/Visibility:CalendarApp._Visibility;
-/**An enum representing the days of the week.*/Weekday:_Weekday;
-/**Creates a new all-day event.
+interface CalendarApp {
+  /**An enum representing the named colors available in the Calendar service.*/ Color: CalendarApp._Color;
+  /**An enum representing the named event colors available in the Calendar service.*/ EventColor: CalendarApp._EventColor;
+  /**An enum representing the statuses a guest can have for an event.*/ GuestStatus: CalendarApp._GuestStatus;
+  /**An enum representing the months of the year.*/ Month: _Month;
+  /**An enum representing the visibility of an event.*/ Visibility: CalendarApp._Visibility;
+  /**An enum representing the days of the week.*/ Weekday: _Weekday;
+  /**Creates a new all-day event.
 
 ```
 // Creates an all-day event for the moon landing and logs the ID.
@@ -15,8 +15,11 @@ Logger.log('Event ID: ' + event.getId());
 ```
 @param title The title of the event.
 @param date The date of the event (only the day is used; the time is ignored).
-@return The created event.*/createAllDayEvent(title:string,date:Date):CalendarApp.CalendarEvent;
-/**Creates a new all-day event that can span multiple days.
+@return The created event.*/ createAllDayEvent(
+    title: string,
+    date: Date,
+  ): CalendarApp.CalendarEvent;
+  /**Creates a new all-day event that can span multiple days.
 
 ```
 // Creates an all-day event for the Woodstock festival (August 15th to 17th) and logs the ID.
@@ -29,8 +32,12 @@ Logger.log('Event ID: ' + event.getId());
 @param startDate The date when the event starts (only the day is used; the time is ignored).
 @param endDate The date when the event ends (only the day is used; the time is ignored). The
     end date is exclusive.
-@return The created event.*/createAllDayEvent(title:string,startDate:Date,endDate:Date):CalendarApp.CalendarEvent;
-/**Creates a new all-day event that can span multiple days.
+@return The created event.*/ createAllDayEvent(
+    title: string,
+    startDate: Date,
+    endDate: Date,
+  ): CalendarApp.CalendarEvent;
+  /**Creates a new all-day event that can span multiple days.
 
 ```
 // Creates an all-day event for the Woodstock festival (August 15th to 17th) and logs the ID.
@@ -45,8 +52,13 @@ Logger.log('Event ID: ' + event.getId());
 @param endDate The date when the event ends (only the day is used; the time is ignored). The
     end date is exclusive.
 @param options A JavaScript object that specifies advanced parameters, as listed below.
-@return The created event.*/createAllDayEvent(title:string,startDate:Date,endDate:Date,options:Object):CalendarApp.CalendarEvent;
-/**Creates a new all-day event.
+@return The created event.*/ createAllDayEvent(
+    title: string,
+    startDate: Date,
+    endDate: Date,
+    options: Object,
+  ): CalendarApp.CalendarEvent;
+  /**Creates a new all-day event.
 
 ```
 // Creates an all-day event for the moon landing and logs the ID.
@@ -58,8 +70,12 @@ Logger.log('Event ID: ' + event.getId());
 @param title The title of the event.
 @param date The date of the event (only the day is used; the time is ignored).
 @param options A JavaScript object that specifies advanced parameters, as listed below.
-@return The created event.*/createAllDayEvent(title:string,date:Date,options:Object):CalendarApp.CalendarEvent;
-/**Creates a new all-day event series.
+@return The created event.*/ createAllDayEvent(
+    title: string,
+    date: Date,
+    options: Object,
+  ): CalendarApp.CalendarEvent;
+  /**Creates a new all-day event series.
 
 ```
 // Creates an event series for a no-meetings day, taking place every Wednesday in 2013.
@@ -74,8 +90,12 @@ Logger.log('Event Series ID: ' + eventSeries.getId());
 @param startDate the date of the first event in the series (only the day is used; the time is
     ignored)
 @param recurrence the recurrence settings of the event series
-@return the created event series*/createAllDayEventSeries(title:string,startDate:Date,recurrence:CalendarApp.EventRecurrence):CalendarApp.CalendarEventSeries;
-/**Creates a new all-day event series.
+@return the created event series*/ createAllDayEventSeries(
+    title: string,
+    startDate: Date,
+    recurrence: CalendarApp.EventRecurrence,
+  ): CalendarApp.CalendarEventSeries;
+  /**Creates a new all-day event series.
 
 ```
 // Creates an event series for a no-meetings day, taking place every Wednesday in 2013.
@@ -92,8 +112,13 @@ Logger.log('Event Series ID: ' + eventSeries.getId());
     ignored)
 @param recurrence the recurrence settings of the event series
 @param options a JavaScript object that specifies advanced parameters, as listed below
-@return the created event series*/createAllDayEventSeries(title:string,startDate:Date,recurrence:CalendarApp.EventRecurrence,options:Object):CalendarApp.CalendarEventSeries;
-/**Creates a new calendar, owned by the user.
+@return the created event series*/ createAllDayEventSeries(
+    title: string,
+    startDate: Date,
+    recurrence: CalendarApp.EventRecurrence,
+    options: Object,
+  ): CalendarApp.CalendarEventSeries;
+  /**Creates a new calendar, owned by the user.
 
 ```
 // Creates a new calendar named "Travel Plans".
@@ -102,8 +127,10 @@ Logger.log('Created the calendar"%s", with the ID "%s".',
     calendar.getName(), calendar.getId());
 ```
 @param name the name of the new calendar
-@return the newly created calendar*/createCalendar(name:string):CalendarApp.Calendar;
-/**Creates a new calendar, owned by the user.
+@return the newly created calendar*/ createCalendar(
+    name: string,
+  ): CalendarApp.Calendar;
+  /**Creates a new calendar, owned by the user.
 
 ```
 // Creates a new calendar named "Travel Plans" with a description and color.
@@ -116,8 +143,11 @@ Logger.log('Created the calendar "%s", with the ID "%s".',
 ```
 @param name the name of the new calendar
 @param options a JavaScript object that specifies advanced parameters, as listed below
-@return the newly created calendar*/createCalendar(name:string,options:Object):CalendarApp.Calendar;
-/**Creates a new event.
+@return the newly created calendar*/ createCalendar(
+    name: string,
+    options: Object,
+  ): CalendarApp.Calendar;
+  /**Creates a new event.
 
 If no time zone is specified, the time values are interpreted in the context of the script's
 time zone, which may be different than the calendar's time zone.
@@ -132,8 +162,12 @@ Logger.log('Event ID: ' + event.getId());
 @param title the title of the event
 @param startTime the date and time when the event starts
 @param endTime the date and time when the event ends
-@return the created event*/createEvent(title:string,startTime:Date,endTime:Date):CalendarApp.CalendarEvent;
-/**Creates a new event.
+@return the created event*/ createEvent(
+    title: string,
+    startTime: Date,
+    endTime: Date,
+  ): CalendarApp.CalendarEvent;
+  /**Creates a new event.
 
 If no time zone is specified, the time values are interpreted in the context of the script's
 time zone, which may be different than the calendar's time zone.
@@ -150,8 +184,13 @@ Logger.log('Event ID: ' + event.getId());
 @param startTime the date and time when the event starts
 @param endTime the date and time when the event ends
 @param options a JavaScript object that specifies advanced parameters, as listed below
-@return the created event*/createEvent(title:string,startTime:Date,endTime:Date,options:Object):CalendarApp.CalendarEvent;
-/**Creates an event from a free-form description.
+@return the created event*/ createEvent(
+    title: string,
+    startTime: Date,
+    endTime: Date,
+    options: Object,
+  ): CalendarApp.CalendarEvent;
+  /**Creates an event from a free-form description.
 
 The description should use the same format as the UI's ["Quick Add"](http://support.google.com/calendar/answer/36604) feature.
 
@@ -162,8 +201,10 @@ var event = CalendarApp.getDefaultCalendar()
 Logger.log('Event ID: ' + event.getId());
 ```
 @param description a free-form description of the event
-@return the created event*/createEventFromDescription(description:string):CalendarApp.CalendarEvent;
-/**Creates a new event series.
+@return the created event*/ createEventFromDescription(
+    description: string,
+  ): CalendarApp.CalendarEvent;
+  /**Creates a new event series.
 
 ```
 // Creates an event series for a team meeting, taking place every Tuesday and Thursday in 2013.
@@ -179,8 +220,13 @@ Logger.log('Event Series ID: ' + eventSeries.getId());
 @param startTime the date and time when the first event in the series starts
 @param endTime the date and time when the first event in the series ends
 @param recurrence the recurrence settings of the event series
-@return the created event series*/createEventSeries(title:string,startTime:Date,endTime:Date,recurrence:CalendarApp.EventRecurrence):CalendarApp.CalendarEventSeries;
-/**Creates a new event series.
+@return the created event series*/ createEventSeries(
+    title: string,
+    startTime: Date,
+    endTime: Date,
+    recurrence: CalendarApp.EventRecurrence,
+  ): CalendarApp.CalendarEventSeries;
+  /**Creates a new event series.
 
 ```
 // Creates an event series for a team meeting, taking place every Tuesday and Thursday in 2013.
@@ -198,8 +244,14 @@ Logger.log('Event Series ID: ' + eventSeries.getId());
 @param endTime the date and time when the first event in the series ends
 @param recurrence the recurrence settings of the event series
 @param options a JavaScript object that specifies advanced parameters, as listed below
-@return the created event series*/createEventSeries(title:string,startTime:Date,endTime:Date,recurrence:CalendarApp.EventRecurrence,options:Object):CalendarApp.CalendarEventSeries;
-/**Gets all calendars that the user owns or is subscribed to.
+@return the created event series*/ createEventSeries(
+    title: string,
+    startTime: Date,
+    endTime: Date,
+    recurrence: CalendarApp.EventRecurrence,
+    options: Object,
+  ): CalendarApp.CalendarEventSeries;
+  /**Gets all calendars that the user owns or is subscribed to.
 
 ```
 // Determines how many calendars the user can access.
@@ -207,16 +259,16 @@ var calendars = CalendarApp.getAllCalendars();
 Logger.log('This user owns or is subscribed to %s calendars.',
     calendars.length);
 ```
-@return all calendars that the user can access*/getAllCalendars():CalendarApp.Calendar[];
-/**Gets all calendars that the user owns.
+@return all calendars that the user can access*/ getAllCalendars(): CalendarApp.Calendar[];
+  /**Gets all calendars that the user owns.
 
 ```
 // Determines how many calendars the user owns.
 var calendars = CalendarApp.getAllOwnedCalendars();
 Logger.log('This user owns %s calendars.', calendars.length);
 ```
-@return all calendars that the user owns*/getAllOwnedCalendars():CalendarApp.Calendar[];
-/**Gets the calendar with the given ID.
+@return all calendars that the user owns*/ getAllOwnedCalendars(): CalendarApp.Calendar[];
+  /**Gets the calendar with the given ID.
 
 ```
 // Gets the public calendar "US Holidays" by ID.
@@ -226,8 +278,10 @@ Logger.log('The calendar is named "%s".', calendar.getName());
 ```
 @param id the calendar ID
 @return the calendar with the given ID, or `null` if the calendar does not exist, if the
-    user cannot access it, or if the user is not subscribed to the calendar*/getCalendarById(id:string):CalendarApp.Calendar;
-/**Gets all calendars with a given name that the user owns or is subscribed to. Names are not
+    user cannot access it, or if the user is not subscribed to the calendar*/ getCalendarById(
+    id: string,
+  ): CalendarApp.Calendar;
+  /**Gets all calendars with a given name that the user owns or is subscribed to. Names are not
 case-sensitive.
 
 ```
@@ -236,8 +290,10 @@ var calendars = CalendarApp.getCalendarsByName('US Holidays');
 Logger.log('Found %s matching calendars.', calendars.length);
 ```
 @param name the calendar name
-@return all calendars with this name that the user can access*/getCalendarsByName(name:string):CalendarApp.Calendar[];
-/**Gets the color of the calendar.
+@return all calendars with this name that the user can access*/ getCalendarsByName(
+    name: string,
+  ): CalendarApp.Calendar[];
+  /**Gets the color of the calendar.
 
 ```
 // Opens the calendar by its ID.
@@ -249,8 +305,8 @@ const calendar = CalendarApp.getCalendarById('222larabrown@gmail.com');
 const calendarColor = calendar.getColor();
 console.log(calendarColor);
 ```
-@return A hexadecimal color string ("#rrggbb").*/getColor():string;
-/**Gets the user's default calendar.
+@return A hexadecimal color string ("#rrggbb").*/ getColor(): string;
+  /**Gets the user's default calendar.
 
 ```
 // Determines the time zone of the user's default calendar.
@@ -258,8 +314,8 @@ var calendar = CalendarApp.getDefaultCalendar();
 Logger.log('My default calendar is set to the time zone "%s".',
     calendar.getTimeZone());
 ```
-@return the user's default calendar*/getDefaultCalendar():CalendarApp.Calendar;
-/**Gets the description of the calendar.
+@return the user's default calendar*/ getDefaultCalendar(): CalendarApp.Calendar;
+  /**Gets the description of the calendar.
 
 ```
 // Opens the calendar by its ID.
@@ -274,8 +330,8 @@ calendar.setDescription('Test description');
 const description = calendar.getDescription();
 console.log(description);
 ```
-@return The description of this calendar.*/getDescription():string;
-/**Gets the event with the given ID. If the series belongs to a calendar other than the default
+@return The description of this calendar.*/ getDescription(): string;
+  /**Gets the event with the given ID. If the series belongs to a calendar other than the default
 calendar, this method must be called from that calendar. Calling [`getEventById(iCalId)`](https://developers.google.com/apps-script/reference/calendar/calendar-app.html#getEventById(String)) only
 returns an event in the default calendar.
 
@@ -303,8 +359,8 @@ console.log(myEvent.getTitle());
 ```
 @param iCalId ID of the event.
 @return The event with the given ID, or `null` if the event doesn't exist or the user
-    cannot access it.*/getEventById(iCalId:string):CalendarApp.CalendarEvent;
-/**Gets the event series with the given ID. If the ID given is for a single [`CalendarEvent`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html),
+    cannot access it.*/ getEventById(iCalId: string): CalendarApp.CalendarEvent;
+  /**Gets the event series with the given ID. If the ID given is for a single [`CalendarEvent`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html),
 then a [`CalendarEventSeries`](https://developers.google.com/apps-script/reference/calendar/calendar-event-series.html) is returned with a single event in the series. Note that if
 the event series belongs to a calendar other than the default calendar, this method must be
 called from that [`CalendarApp`](https://developers.google.com/apps-script/reference/calendar/calendar-app.html); calling [`getEventSeriesById(iCalId)`](https://developers.google.com/apps-script/reference/calendar/calendar-app.html#getEventSeriesById(String))
@@ -331,8 +387,10 @@ console.log(calendar.getEventSeriesById(iCalId).getTitle());
 ```
 @param iCalId ID of the event series.
 @return The series with the given ID, or `null` if the series doesn't exist or the user
-    cannot access it.*/getEventSeriesById(iCalId:string):CalendarApp.CalendarEventSeries;
-/**Gets all events that occur within a given time range.
+    cannot access it.*/ getEventSeriesById(
+    iCalId: string,
+  ): CalendarApp.CalendarEventSeries;
+  /**Gets all events that occur within a given time range.
 
 This method returns events that start during the given time range, end during the time
 range, or encompass the time range. If no time zone is specified, the time values are
@@ -348,8 +406,11 @@ Logger.log('Number of events: ' + events.length);
 ```
 @param startTime the start of the time range
 @param endTime the end of the time range, non-inclusive
-@return the events that occur within the time range*/getEvents(startTime:Date,endTime:Date):CalendarApp.CalendarEvent[];
-/**Gets all events that occur within a given time range and meet the specified criteria.
+@return the events that occur within the time range*/ getEvents(
+    startTime: Date,
+    endTime: Date,
+  ): CalendarApp.CalendarEvent[];
+  /**Gets all events that occur within a given time range and meet the specified criteria.
 
 This method returns events that start during the given time range, ends during the time
 range, or encompasses the time range. If no time zone is specified, the time values are
@@ -372,8 +433,12 @@ Logger.log('Number of events: ' + events.length);
 @param startTime the start of the time range
 @param endTime the end of the time range, non-inclusive
 @param options a JavaScript object that specifies advanced parameters, as listed below
-@return the events that take place within the time range and match the criteria*/getEvents(startTime:Date,endTime:Date,options:Object):CalendarApp.CalendarEvent[];
-/**Gets all events that occur on a given day.
+@return the events that take place within the time range and match the criteria*/ getEvents(
+    startTime: Date,
+    endTime: Date,
+    options: Object,
+  ): CalendarApp.CalendarEvent[];
+  /**Gets all events that occur on a given day.
 
 This method returns events if they start during the given day, end during the day, or
 encompass the day.
@@ -389,8 +454,10 @@ var events = CalendarApp.getDefaultCalendar().getEventsForDay(today);
 Logger.log('Number of events: ' + events.length);
 ```
 @param date the date to retrieve events for (only the day is used; the time is ignored)
-@return the events that occur on the given date*/getEventsForDay(date:Date):CalendarApp.CalendarEvent[];
-/**Gets all events that occur on a given day and meet specified criteria.
+@return the events that occur on the given date*/ getEventsForDay(
+    date: Date,
+  ): CalendarApp.CalendarEvent[];
+  /**Gets all events that occur on a given day and meet specified criteria.
 
 This method returns events if they start during the given day, end during the day, or
 encompass the day.
@@ -411,8 +478,11 @@ Logger.log('Number of events: ' + events.length);
 ```
 @param date the date to retrieve events for (only the day is used; the time is ignored)
 @param options advanced filtering options
-@return the events that occur on the given date and match the criteria*/getEventsForDay(date:Date,options:Object):CalendarApp.CalendarEvent[];
-/**Gets the ID of the calendar. The ID for a user's default calendar is their email address.
+@return the events that occur on the given date and match the criteria*/ getEventsForDay(
+    date: Date,
+    options: Object,
+  ): CalendarApp.CalendarEvent[];
+  /**Gets the ID of the calendar. The ID for a user's default calendar is their email address.
 
 ```
 // Opens the calendar by its ID.
@@ -424,8 +494,8 @@ const calendar = CalendarApp.getCalendarById('222larabrown@gmail.com');
 const calendarId = calendar.getId();
 console.log(calendarId);
 ```
-@return The ID of the calendar.*/getId():string;
-/**Gets the name of the calendar.
+@return The ID of the calendar.*/ getId(): string;
+  /**Gets the name of the calendar.
 
 ```
 // Opens the calendar by its ID.
@@ -437,8 +507,8 @@ const calendar = CalendarApp.getCalendarById('222larabrown@gmail.com');
 const calendarName = calendar.getName();
 console.log(calendarName);
 ```
-@return This calendar's name.*/getName():string;
-/**Gets the calendar with the given ID, if the user owns it.
+@return This calendar's name.*/ getName(): string;
+  /**Gets the calendar with the given ID, if the user owns it.
 
 To find a calendar ID, click the arrow next to the calendar's name in Google Calendar and
 select __Calendar settings__. The ID is shown near the bottom of the settings
@@ -452,8 +522,10 @@ Logger.log('The calendar is named "%s".', calendar.getName());
 ```
 @param id the calendar id
 @return the calendar with the given ID, or `null` if the calendar does not exist or the
-    user does not own it*/getOwnedCalendarById(id:string):CalendarApp.Calendar;
-/**Gets all calendars with a given name that the user owns. Names are not case-sensitive.
+    user does not own it*/ getOwnedCalendarById(
+    id: string,
+  ): CalendarApp.Calendar;
+  /**Gets all calendars with a given name that the user owns. Names are not case-sensitive.
 
 ```
 // Gets a private calendar named "Travel Plans".
@@ -461,8 +533,10 @@ var calendars = CalendarApp.getOwnedCalendarsByName('Travel Plans');
 Logger.log('Found %s matching calendars.', calendars.length);
 ```
 @param name the calendar name
-@return all calendars with this name that the user owns*/getOwnedCalendarsByName(name:string):CalendarApp.Calendar[];
-/**Gets the time zone of the calendar.
+@return all calendars with this name that the user owns*/ getOwnedCalendarsByName(
+    name: string,
+  ): CalendarApp.Calendar[];
+  /**Gets the time zone of the calendar.
 
 ```
 // Opens the calendar by its ID.
@@ -475,8 +549,8 @@ const timeZone = calendar.getTimeZone();
 console.log(timeZone);
 ```
 @return The time zone, specified in "long" format (for example, "America/New_York", as listed
-    by [Joda.org](http://joda-time.sourceforge.net/timezones.html)).*/getTimeZone():string;
-/**Determines whether the calendar is hidden in the user interface.
+    by [Joda.org](http://joda-time.sourceforge.net/timezones.html)).*/ getTimeZone(): string;
+  /**Determines whether the calendar is hidden in the user interface.
 
 ```
 // Opens the calendar by its ID.
@@ -489,8 +563,8 @@ const isHidden = calendar.isHidden();
 console.log(isHidden);
 ```
 @return `true` if the calendar is hidden in the user interface; `false` if it
-    isn't.*/isHidden():boolean;
-/**Determines whether the calendar is the primary calendar for the effective user.
+    isn't.*/ isHidden(): boolean;
+  /**Determines whether the calendar is the primary calendar for the effective user.
 
 ```
 // Opens the calendar by its ID.
@@ -503,8 +577,8 @@ const calendar = CalendarApp.getCalendarById('222larabrown@gmail.com');
 const isMyPrimaryCalendar = calendar.isMyPrimaryCalendar();
 console.log(isMyPrimaryCalendar);
 ```
-@return `true` if the calendar is the default calendar for the effective user; `false` if it isn't.*/isMyPrimaryCalendar():boolean;
-/**Determines whether the calendar is owned by you.
+@return `true` if the calendar is the default calendar for the effective user; `false` if it isn't.*/ isMyPrimaryCalendar(): boolean;
+  /**Determines whether the calendar is owned by you.
 
 ```
 // Gets a calendar by its ID. To get the user's default calendar, use
@@ -515,8 +589,8 @@ const calendar = CalendarApp.getCalendarById('abc123456@group.calendar.google.co
 // Determines whether the calendar is owned by you and logs it.
 console.log(calendar.isOwnedByMe());
 ```
-@return `true` if the calendar is owned by you; `false` if not.*/isOwnedByMe():boolean;
-/**Determines whether the calendar's events are displayed in the user interface.
+@return `true` if the calendar is owned by you; `false` if not.*/ isOwnedByMe(): boolean;
+  /**Determines whether the calendar's events are displayed in the user interface.
 
 ```
 // Gets the user's default calendar. To get a different calendar, use getCalendarById()
@@ -526,8 +600,8 @@ const calendar = CalendarApp.getDefaultCalendar();
 // Determines whether the calendar's events are displayed in the user interface and logs it.
 console.log(calendar.isSelected());
 ```
-@return `true` if the calendar's events are displayed in the user interface; `false` if not*/isSelected():boolean;
-/**Creates a new recurrence object, which can be used to create rules for event recurrence.
+@return `true` if the calendar's events are displayed in the user interface; `false` if not*/ isSelected(): boolean;
+  /**Creates a new recurrence object, which can be used to create rules for event recurrence.
 
 ```
 // Creates an event series for a no-meetings day, taking place every Wednesday in 2013.
@@ -539,8 +613,8 @@ var eventSeries = CalendarApp.getDefaultCalendar().createAllDayEventSeries('No M
     recurrence);
 Logger.log('Event Series ID: ' + eventSeries.getId());
 ```
-@return a new recurrence object with no rules set (behaves as a weekly recurrence)*/newRecurrence():CalendarApp.EventRecurrence;
-/**Sets the color of the calendar.
+@return a new recurrence object with no rules set (behaves as a weekly recurrence)*/ newRecurrence(): CalendarApp.EventRecurrence;
+  /**Sets the color of the calendar.
 
 ```
 // Opens the calendar by its ID.
@@ -553,8 +627,10 @@ calendar.setColor(CalendarApp.Color.PINK);
 ```
 @param color A [`CalendarApp.Color`](https://developers.google.com/apps-script/reference/calendar/color.html) or a hexadecimal color string
     ("#rrggbb").
-@return This calendar for chaining.*/setColor(color:string):CalendarApp.Calendar;
-/**Sets the description of a calendar.
+@return This calendar for chaining.*/ setColor(
+    color: string,
+  ): CalendarApp.Calendar;
+  /**Sets the description of a calendar.
 
 ```
 // Gets the user's default calendar. To get a different calendar, use getCalendarById()
@@ -566,11 +642,15 @@ const calendar = CalendarApp.getDefaultCalendar();
 calendar.setDescription('Updated calendar description.')
 ```
 @param description the description of this calendar
-@return this calendar for chaining*/setDescription(description:string):CalendarApp.Calendar;
-/**Sets whether the calendar is visible in the user interface.
+@return this calendar for chaining*/ setDescription(
+    description: string,
+  ): CalendarApp.Calendar;
+  /**Sets whether the calendar is visible in the user interface.
 @param hidden `true` to hide the calendar in the user interface; `false` to show it
-@return this calendar for chaining*/setHidden(hidden:boolean):CalendarApp.Calendar;
-/**Sets the name of the calendar.
+@return this calendar for chaining*/ setHidden(
+    hidden: boolean,
+  ): CalendarApp.Calendar;
+  /**Sets the name of the calendar.
 
 ```
 // Gets the user's default calendar. To get a different calendar, use getCalendarById()
@@ -582,8 +662,10 @@ const calendar = CalendarApp.getDefaultCalendar();
 calendar.setName('Example calendar name');
 ```
 @param name the new name
-@return this calendar for chaining*/setName(name:string):CalendarApp.Calendar;
-/**Sets whether the calendar's events are displayed in the user interface.
+@return this calendar for chaining*/ setName(
+    name: string,
+  ): CalendarApp.Calendar;
+  /**Sets whether the calendar's events are displayed in the user interface.
 
 ```
 // Gets the user's default calendar. To get a different calendar, use getCalendarById()
@@ -596,8 +678,10 @@ calendar.setSelected(true);
 ```
 @param selected `true` to show the calendar's events in the user interface; `false`
     to hide them
-@return this calendar for chaining*/setSelected(selected:boolean):CalendarApp.Calendar;
-/**Sets the time zone of the calendar.
+@return this calendar for chaining*/ setSelected(
+    selected: boolean,
+  ): CalendarApp.Calendar;
+  /**Sets the time zone of the calendar.
 
 ```
 // Gets the user's default calendar. To get a different calendar, use getCalendarById()
@@ -609,8 +693,10 @@ calendar.setTimeZone('America/New_York');
 ```
 @param timeZone The time zone, specified in "long" format (such as "America/New_York", as
     listed by [Joda.org](http://joda-time.sourceforge.net/timezones.html)).
-@return This calendar for chaining.*/setTimeZone(timeZone:string):CalendarApp.Calendar;
-/**Subscribes the user to the calendar with the given ID, if the user is allowed to subscribe.
+@return This calendar for chaining.*/ setTimeZone(
+    timeZone: string,
+  ): CalendarApp.Calendar;
+  /**Subscribes the user to the calendar with the given ID, if the user is allowed to subscribe.
 
 ```
 // Subscribe to the calendar "US Holidays".
@@ -619,8 +705,10 @@ var calendar = CalendarApp.subscribeToCalendar(
 Logger.log('Subscribed to the calendar "%s".', calendar.getName());
 ```
 @param id the ID of the calendar to subscribe to
-@return the newly subscribed to calendar*/subscribeToCalendar(id:string):CalendarApp.Calendar;
-/**Subscribes the user to the calendar with the given ID, if the user is allowed to subscribe.
+@return the newly subscribed to calendar*/ subscribeToCalendar(
+    id: string,
+  ): CalendarApp.Calendar;
+  /**Subscribes the user to the calendar with the given ID, if the user is allowed to subscribe.
 
 ```
 // Subscribe to the calendar "US Holidays", and set it to the color blue.
@@ -631,35 +719,48 @@ Logger.log('Subscribed to the calendar "%s".', calendar.getName());
 ```
 @param id The ID of the calendar to subscribe to.
 @param options A JavaScript object that specifies advanced parameters, as listed below.
-@return The newly subscribed calendar.*/subscribeToCalendar(id:string,options:Object):CalendarApp.Calendar;}module CalendarApp{interface Visibility{}interface _Visibility{
-/**The event is private. This value is provided for compatibility reasons.*/CONFIDENTIAL:Visibility;
-/**Uses the default visibility for events on the calendar.*/DEFAULT:Visibility;
-/**The event is private and only event attendees may view event details.*/PRIVATE:Visibility;
-/**The event is public and event details are visible to all readers of the calendar.*/PUBLIC:Visibility;}interface RecurrenceRule{
-/**Adds a rule that excludes occurrences on a daily basis.
+@return The newly subscribed calendar.*/ subscribeToCalendar(
+    id: string,
+    options: Object,
+  ): CalendarApp.Calendar;
+}
+module CalendarApp {
+  interface Visibility {}
+  interface _Visibility {
+    /**The event is private. This value is provided for compatibility reasons.*/ CONFIDENTIAL: Visibility;
+    /**Uses the default visibility for events on the calendar.*/ DEFAULT: Visibility;
+    /**The event is private and only event attendees may view event details.*/ PRIVATE: Visibility;
+    /**The event is public and event details are visible to all readers of the calendar.*/ PUBLIC: Visibility;
+  }
+  interface RecurrenceRule {
+    /**Adds a rule that excludes occurrences on a daily basis.
 
 ```
 // Creates a rule that recurs every week after the first 30 days.
 var recurrence = CalendarApp.newRecurrence().addWeeklyRule().addDailyExclusion().times(30);
 ```
-@return the new RecurrenceRule*/addDailyExclusion():CalendarApp.RecurrenceRule;
-/**Adds a rule that causes the event to recur on a daily basis.
+@return the new RecurrenceRule*/ addDailyExclusion(): CalendarApp.RecurrenceRule;
+    /**Adds a rule that causes the event to recur on a daily basis.
 
 ```
 // Creates a rule that recurs every day for ten days.
 var recurrence = CalendarApp.newRecurrence().addDailyRule().times(10);
 ```
-@return the new RecurrenceRule*/addDailyRule():CalendarApp.RecurrenceRule;
-/**Adds a rule that causes the event to recur on a specific date.
-@return this EventRecurrence for chaining*/addDate(date:Date):CalendarApp.EventRecurrence;
-/**Adds a rule that excludes an occurrence for a specific date.
-@return this EventRecurrence for chaining*/addDateExclusion(date:Date):CalendarApp.EventRecurrence;
-/**Adds a rule that excludes occurrences on a monthly basis.
+@return the new RecurrenceRule*/ addDailyRule(): CalendarApp.RecurrenceRule;
+    /**Adds a rule that causes the event to recur on a specific date.
+@return this EventRecurrence for chaining*/ addDate(
+      date: Date,
+    ): CalendarApp.EventRecurrence;
+    /**Adds a rule that excludes an occurrence for a specific date.
+@return this EventRecurrence for chaining*/ addDateExclusion(
+      date: Date,
+    ): CalendarApp.EventRecurrence;
+    /**Adds a rule that excludes occurrences on a monthly basis.
 
 By default the exclusion is applied on the same day of the month as the first event in the
 series, but this can be altered by calling [`onlyOnMonthDay(day)`](https://developers.google.com/apps-script/reference/calendar/recurrence-rule.html#onlyOnMonthDay(Integer)) or [`onlyOnMonthDays(days)`](https://developers.google.com/apps-script/reference/calendar/recurrence-rule.html#onlyOnMonthDays(Integer)).
-@return the new RecurrenceRule*/addMonthlyExclusion():CalendarApp.RecurrenceRule;
-/**Adds a rule that causes the event to recur on a monthly basis.
+@return the new RecurrenceRule*/ addMonthlyExclusion(): CalendarApp.RecurrenceRule;
+    /**Adds a rule that causes the event to recur on a monthly basis.
 
 By default the event recurs on the same day of the month as the first event in the series,
 but this can be altered by calling [`onlyOnMonthDay(day)`](https://developers.google.com/apps-script/reference/calendar/recurrence-rule.html#onlyOnMonthDay(Integer)) or [`onlyOnMonthDays(days)`](https://developers.google.com/apps-script/reference/calendar/recurrence-rule.html#onlyOnMonthDays(Integer)).
@@ -668,8 +769,8 @@ but this can be altered by calling [`onlyOnMonthDay(day)`](https://developers.go
 // Creates a rule that recurs every month for three months.
 var recurrence = CalendarApp.newRecurrence().addMonthlyRule().times(4);
 ```
-@return the new RecurrenceRule*/addMonthlyRule():CalendarApp.RecurrenceRule;
-/**Adds a rule that excludes occurrences on a weekly basis.
+@return the new RecurrenceRule*/ addMonthlyRule(): CalendarApp.RecurrenceRule;
+    /**Adds a rule that excludes occurrences on a weekly basis.
 
 By default the exclusion is applied on the same day of the week as the first event in the
 series, but this can be altered by calling [`onlyOnWeekday(day)`](https://developers.google.com/apps-script/reference/calendar/recurrence-rule.html#onlyOnWeekday(Weekday)) or [`onlyOnWeekdays(days)`](https://developers.google.com/apps-script/reference/calendar/recurrence-rule.html#onlyOnWeekdays(Weekday)).
@@ -679,8 +780,8 @@ series, but this can be altered by calling [`onlyOnWeekday(day)`](https://develo
 var recurrence = CalendarApp.newRecurrence().addDailyRule()
     .addWeeklyExclusion().onlyOnWeekday(CalendarApp.Weekday.WEDNESDAY).times(4);
 ```
-@return the new RecurrenceRule*/addWeeklyExclusion():CalendarApp.RecurrenceRule;
-/**Adds a rule that causes the event to recur on a weekly basis.
+@return the new RecurrenceRule*/ addWeeklyExclusion(): CalendarApp.RecurrenceRule;
+    /**Adds a rule that causes the event to recur on a weekly basis.
 
 By default the event recurs on the same day of the week as the first event in the series,
 but this can be altered by calling [`onlyOnWeekday(day)`](https://developers.google.com/apps-script/reference/calendar/recurrence-rule.html#onlyOnWeekday(Weekday)) or [`onlyOnWeekdays(days)`](https://developers.google.com/apps-script/reference/calendar/recurrence-rule.html#onlyOnWeekdays(Weekday)).
@@ -689,26 +790,28 @@ but this can be altered by calling [`onlyOnWeekday(day)`](https://developers.goo
 // Creates a rule that recurs every week for ten weeks.
 var recurrence = CalendarApp.newRecurrence().addWeeklyRule().times(10);
 ```
-@return the new RecurrenceRule*/addWeeklyRule():CalendarApp.RecurrenceRule;
-/**Adds a rule that excludes occurrences on a yearly basis.
+@return the new RecurrenceRule*/ addWeeklyRule(): CalendarApp.RecurrenceRule;
+    /**Adds a rule that excludes occurrences on a yearly basis.
 
 By default the exclusion is applied on the same day of the year as the first event in the
 series, but this can be altered by calling [`onlyOnYearDay(day)`](https://developers.google.com/apps-script/reference/calendar/recurrence-rule.html#onlyOnYearDay(Integer)) or [`onlyOnYearDays(days)`](https://developers.google.com/apps-script/reference/calendar/recurrence-rule.html#onlyOnYearDays(Integer)).
-@return the new RecurrenceRule*/addYearlyExclusion():CalendarApp.RecurrenceRule;
-/**Adds a rule that causes the event to recur on a yearly basis.
+@return the new RecurrenceRule*/ addYearlyExclusion(): CalendarApp.RecurrenceRule;
+    /**Adds a rule that causes the event to recur on a yearly basis.
 
 By default the event recurs on the same day of the year as the first event in the series,
 but this can be altered by calling [`onlyOnYearDay(day)`](https://developers.google.com/apps-script/reference/calendar/recurrence-rule.html#onlyOnYearDay(Integer)) or [`onlyOnYearDays(days)`](https://developers.google.com/apps-script/reference/calendar/recurrence-rule.html#onlyOnYearDays(Integer)).
-@return the new RecurrenceRule*/addYearlyRule():CalendarApp.RecurrenceRule;
-/**Configures the rule to only apply at this interval of the rule's time unit.
+@return the new RecurrenceRule*/ addYearlyRule(): CalendarApp.RecurrenceRule;
+    /**Configures the rule to only apply at this interval of the rule's time unit.
 
 ```
 // Creates a rule that recurs every fourth week.
 var recurrence = CalendarApp.newRecurrence().addWeeklyRule().interval(4);
 ```
 @param interval the interval in the rule's time unit
-@return this RecurrenceRule for chaining*/interval(interval:Integer):CalendarApp.RecurrenceRule;
-/**Configures the rule to only apply to a specific month.
+@return this RecurrenceRule for chaining*/ interval(
+      interval: Integer,
+    ): CalendarApp.RecurrenceRule;
+    /**Configures the rule to only apply to a specific month.
 
 ```
 // Creates a rule that recurs every week in February.
@@ -716,8 +819,10 @@ var recurrence = CalendarApp.newRecurrence()
     .addWeeklyRule().onlyInMonth(CalendarApp.Month.FEBRUARY);
 ```
 @param month the month
-@return this RecurrenceRule for chaining*/onlyInMonth(month:Month):CalendarApp.RecurrenceRule;
-/**Configures the rule to only apply to specific months.
+@return this RecurrenceRule for chaining*/ onlyInMonth(
+      month: Month,
+    ): CalendarApp.RecurrenceRule;
+    /**Configures the rule to only apply to specific months.
 
 ```
 // Creates a rule that recurs every week in February and March.
@@ -725,32 +830,40 @@ var recurrence = CalendarApp.newRecurrence()
     .addWeeklyRule().onlyInMonths([CalendarApp.Month.FEBRUARY, CalendarApp.Month.MARCH]);
 ```
 @param months the months
-@return this RecurrenceRule for chaining*/onlyInMonths(months:Month[]):CalendarApp.RecurrenceRule;
-/**Configures the rule to only apply to a specific day of the month.
+@return this RecurrenceRule for chaining*/ onlyInMonths(
+      months: Month[],
+    ): CalendarApp.RecurrenceRule;
+    /**Configures the rule to only apply to a specific day of the month.
 
 ```
 // Creates a rule that recurs every month on the fifth day of the month.
 var recurrence = CalendarApp.newRecurrence().addMonthlyRule().onlyOnMonthDay(5);
 ```
 @param day the day of the month
-@return this RecurrenceRule for chaining*/onlyOnMonthDay(day:Integer):CalendarApp.RecurrenceRule;
-/**Configures the rule to only apply to specific days of the month.
+@return this RecurrenceRule for chaining*/ onlyOnMonthDay(
+      day: Integer,
+    ): CalendarApp.RecurrenceRule;
+    /**Configures the rule to only apply to specific days of the month.
 
 ```
 // Creates a rule that recurs every month on the first and fifteenth day of the month.
 var recurrence = CalendarApp.newRecurrence().addMonthlyRule().onlyOnMonthDays([1, 15]);
 ```
 @param days the days of the month
-@return this RecurrenceRule for chaining*/onlyOnMonthDays(days:Integer[]):CalendarApp.RecurrenceRule;
-/**Configures the rule to only apply to a specific week of the year.
+@return this RecurrenceRule for chaining*/ onlyOnMonthDays(
+      days: Integer[],
+    ): CalendarApp.RecurrenceRule;
+    /**Configures the rule to only apply to a specific week of the year.
 
 ```
 // Creates a rule that recurs on the fifth week of every year.
 var recurrence = CalendarApp.newRecurrence().addWeeklyRule().onlyOnWeek(5);
 ```
 @param week the week
-@return this RecurrenceRule for chaining*/onlyOnWeek(week:Integer):CalendarApp.RecurrenceRule;
-/**Configures the rule to only apply to a specific day of the week.
+@return this RecurrenceRule for chaining*/ onlyOnWeek(
+      week: Integer,
+    ): CalendarApp.RecurrenceRule;
+    /**Configures the rule to only apply to a specific day of the week.
 
 ```
 // Creates a rule that recurs every week on Wednesdays.
@@ -758,8 +871,10 @@ var recurrence = CalendarApp.newRecurrence()
     .addWeeklyRule().onlyOnWeekday(CalendarApp.Weekday.WEDNESDAY);
 ```
 @param day the day of the week
-@return this RecurrenceRule for chaining*/onlyOnWeekday(day:Weekday):CalendarApp.RecurrenceRule;
-/**Configures the rule to only apply to specific days of the week.
+@return this RecurrenceRule for chaining*/ onlyOnWeekday(
+      day: Weekday,
+    ): CalendarApp.RecurrenceRule;
+    /**Configures the rule to only apply to specific days of the week.
 
 ```
 // Creates a rule that recurs every week on Tuesdays and Thursdays.
@@ -768,53 +883,67 @@ var recurrence = CalendarApp.newRecurrence()
         [CalendarApp.Weekday.TUESDAY, CalendarApp.Weekday.THURSDAY]);
 ```
 @param days the days of the week
-@return this RecurrenceRule for chaining*/onlyOnWeekdays(days:Weekday[]):CalendarApp.RecurrenceRule;
-/**Configures the rule to only apply to specific weeks of the year.
+@return this RecurrenceRule for chaining*/ onlyOnWeekdays(
+      days: Weekday[],
+    ): CalendarApp.RecurrenceRule;
+    /**Configures the rule to only apply to specific weeks of the year.
 
 ```
 // Creates a rule that recurs on the fifth and tenth weeks of every year.
 var recurrence = CalendarApp.newRecurrence().addWeeklyRule().onlyOnWeeks([5, 10]);
 ```
 @param weeks the weeks
-@return this RecurrenceRule for chaining*/onlyOnWeeks(weeks:Integer[]):CalendarApp.RecurrenceRule;
-/**Configures the rule to only apply to a specific day of the year.
+@return this RecurrenceRule for chaining*/ onlyOnWeeks(
+      weeks: Integer[],
+    ): CalendarApp.RecurrenceRule;
+    /**Configures the rule to only apply to a specific day of the year.
 
 ```
 // Creates a rule that recurs every year on February 15 (the 46th day).
 var recurrence = CalendarApp.newRecurrence().addYearlyRule().onlyOnYearDay(46);
 ```
 @param day the day of the year
-@return this RecurrenceRule for chaining*/onlyOnYearDay(day:Integer):CalendarApp.RecurrenceRule;
-/**Configures the rule to only apply to specific days of the year.
+@return this RecurrenceRule for chaining*/ onlyOnYearDay(
+      day: Integer,
+    ): CalendarApp.RecurrenceRule;
+    /**Configures the rule to only apply to specific days of the year.
 
 ```
 // Creates a rule that recurs every year on January 20 and February 15.
 var recurrence = CalendarApp.newRecurrence().addYearlyRule().onlyOnYearDay([20, 46]);
 ```
 @param days the days of the year
-@return this RecurrenceRule for chaining*/onlyOnYearDays(days:Integer[]):CalendarApp.RecurrenceRule;
-/**Sets the time zone for this recurrence. This affects the date and time that events recur on,
+@return this RecurrenceRule for chaining*/ onlyOnYearDays(
+      days: Integer[],
+    ): CalendarApp.RecurrenceRule;
+    /**Sets the time zone for this recurrence. This affects the date and time that events recur on,
 and whether the event shifts with daylight savings time. Defaults to the calendar's time zone.
 @param timeZone the time zone, specified in "long" format (e.g., 'America/New_York', as listed
     by [Joda.org](http://joda-time.sourceforge.net/timezones.html))
-@return this EventRecurrence for chaining*/setTimeZone(timeZone:string):CalendarApp.EventRecurrence;
-/**Configures the rule to end after a given number of occurrences.
+@return this EventRecurrence for chaining*/ setTimeZone(
+      timeZone: string,
+    ): CalendarApp.EventRecurrence;
+    /**Configures the rule to end after a given number of occurrences.
 
 ```
 // Creates a rule that recurs every day for ten days.
 var recurrence = CalendarApp.newRecurrence().addDailyRule().times(10);
 ```
 @param times the number of times to recur
-@return this RecurrenceRule for chaining*/times(times:Integer):CalendarApp.RecurrenceRule;
-/**Configures the rule to end on a given date (inclusive).
+@return this RecurrenceRule for chaining*/ times(
+      times: Integer,
+    ): CalendarApp.RecurrenceRule;
+    /**Configures the rule to end on a given date (inclusive).
 
 ```
 // Creates a rule that recurs every day through the end of 2013.
 var recurrence = CalendarApp.newRecurrence()
     .addDailyRule().until(new Date('December 31, 2013'));
 ```
-@return this RecurrenceRule for chaining*/until(endDate:Date):CalendarApp.RecurrenceRule;
-/**Configures which day a week starts on, for the purposes of applying the rule.
+@return this RecurrenceRule for chaining*/ until(
+      endDate: Date,
+    ): CalendarApp.RecurrenceRule;
+    /**Configures which day a week starts on, for the purposes of applying the rule.
 
 ```
 // Creates a weekly rule where weeks start on Monday.
@@ -822,42 +951,56 @@ var recurrence = CalendarApp.newRecurrence()
     .addWeeklyRule().weekStartsOn(CalendarApp.Weekday.MONDAY);
 ```
 @param day the day on which the week starts
-@return this RecurrenceRule for chaining*/weekStartsOn(day:Weekday):CalendarApp.RecurrenceRule;}interface GuestStatus{}interface _GuestStatus{
-/**The guest has been invited, but has not indicated whether they are attending.*/INVITED:GuestStatus;
-/**The guest has indicated they might attend.*/MAYBE:GuestStatus;
-/**The guest has indicated they are not attending.*/NO:GuestStatus;
-/**The guest is the owner of the event.*/OWNER:GuestStatus;
-/**The guest has indicated they are attending.*/YES:GuestStatus;}interface EventType{}interface _EventType{
-/**The event is a special all-day event with an annual recurrence.*/BIRTHDAY:EventType;
-/**The event is a regular event.*/DEFAULT:EventType;
-/**The event is a focus-time event.*/FOCUS_TIME:EventType;
-/**The event is an event from Gmail.*/FROM_GMAIL:EventType;
-/**The event is an out-of-office event.*/OUT_OF_OFFICE:EventType;
-/**The event is a working location event.*/WORKING_LOCATION:EventType;}interface EventRecurrence{
-/**Adds a rule that excludes occurrences on a daily basis.
+@return this RecurrenceRule for chaining*/ weekStartsOn(
+      day: Weekday,
+    ): CalendarApp.RecurrenceRule;
+  }
+  interface GuestStatus {}
+  interface _GuestStatus {
+    /**The guest has been invited, but has not indicated whether they are attending.*/ INVITED: GuestStatus;
+    /**The guest has indicated they might attend.*/ MAYBE: GuestStatus;
+    /**The guest has indicated they are not attending.*/ NO: GuestStatus;
+    /**The guest is the owner of the event.*/ OWNER: GuestStatus;
+    /**The guest has indicated they are attending.*/ YES: GuestStatus;
+  }
+  interface EventType {}
+  interface _EventType {
+    /**The event is a special all-day event with an annual recurrence.*/ BIRTHDAY: EventType;
+    /**The event is a regular event.*/ DEFAULT: EventType;
+    /**The event is a focus-time event.*/ FOCUS_TIME: EventType;
+    /**The event is an event from Gmail.*/ FROM_GMAIL: EventType;
+    /**The event is an out-of-office event.*/ OUT_OF_OFFICE: EventType;
+    /**The event is a working location event.*/ WORKING_LOCATION: EventType;
+  }
+  interface EventRecurrence {
+    /**Adds a rule that excludes occurrences on a daily basis.
 
 ```
 // Creates a rule that recurs every week after the first 30 days.
 var recurrence = CalendarApp.newRecurrence().addWeeklyRule().addDailyExclusion().times(30);
 ```
-@return the new RecurrenceRule*/addDailyExclusion():CalendarApp.RecurrenceRule;
-/**Adds a rule that causes the event to recur on a daily basis.
+@return the new RecurrenceRule*/ addDailyExclusion(): CalendarApp.RecurrenceRule;
+    /**Adds a rule that causes the event to recur on a daily basis.
 
 ```
 // Creates a rule that recurs every day for ten days.
 var recurrence = CalendarApp.newRecurrence().addDailyRule().times(10);
 ```
-@return the new RecurrenceRule*/addDailyRule():CalendarApp.RecurrenceRule;
-/**Adds a rule that causes the event to recur on a specific date.
-@return this EventRecurrence for chaining*/addDate(date:Date):CalendarApp.EventRecurrence;
-/**Adds a rule that excludes an occurrence for a specific date.
-@return this EventRecurrence for chaining*/addDateExclusion(date:Date):CalendarApp.EventRecurrence;
-/**Adds a rule that excludes occurrences on a monthly basis.
+@return the new RecurrenceRule*/ addDailyRule(): CalendarApp.RecurrenceRule;
+    /**Adds a rule that causes the event to recur on a specific date.
+@return this EventRecurrence for chaining*/ addDate(
+      date: Date,
+    ): CalendarApp.EventRecurrence;
+    /**Adds a rule that excludes an occurrence for a specific date.
+@return this EventRecurrence for chaining*/ addDateExclusion(
+      date: Date,
+    ): CalendarApp.EventRecurrence;
+    /**Adds a rule that excludes occurrences on a monthly basis.
 
 By default the exclusion is applied on the same day of the month as the first event in the
 series, but this can be altered by calling [`RecurrenceRule.onlyOnMonthDay(day)`](https://developers.google.com/apps-script/reference/calendar/recurrence-rule.html#onlyOnMonthDay(Integer)) or [`RecurrenceRule.onlyOnMonthDays(days)`](https://developers.google.com/apps-script/reference/calendar/recurrence-rule.html#onlyOnMonthDays(Integer)).
-@return the new RecurrenceRule*/addMonthlyExclusion():CalendarApp.RecurrenceRule;
-/**Adds a rule that causes the event to recur on a monthly basis.
+@return the new RecurrenceRule*/ addMonthlyExclusion(): CalendarApp.RecurrenceRule;
+    /**Adds a rule that causes the event to recur on a monthly basis.
 
 By default the event recurs on the same day of the month as the first event in the series,
 but this can be altered by calling [`RecurrenceRule.onlyOnMonthDay(day)`](https://developers.google.com/apps-script/reference/calendar/recurrence-rule.html#onlyOnMonthDay(Integer)) or [`RecurrenceRule.onlyOnMonthDays(days)`](https://developers.google.com/apps-script/reference/calendar/recurrence-rule.html#onlyOnMonthDays(Integer)).
@@ -866,8 +1009,8 @@ but this can be altered by calling [`RecurrenceRule.onlyOnMonthDay(day)`](https:
 // Creates a rule that recurs every month for three months.
 var recurrence = CalendarApp.newRecurrence().addMonthlyRule().times(4);
 ```
-@return the new RecurrenceRule*/addMonthlyRule():CalendarApp.RecurrenceRule;
-/**Adds a rule that excludes occurrences on a weekly basis.
+@return the new RecurrenceRule*/ addMonthlyRule(): CalendarApp.RecurrenceRule;
+    /**Adds a rule that excludes occurrences on a weekly basis.
 
 By default the exclusion is applied on the same day of the week as the first event in the
 series, but this can be altered by calling [`RecurrenceRule.onlyOnWeekday(day)`](https://developers.google.com/apps-script/reference/calendar/recurrence-rule.html#onlyOnWeekday(Weekday)) or [`RecurrenceRule.onlyOnWeekdays(days)`](https://developers.google.com/apps-script/reference/calendar/recurrence-rule.html#onlyOnWeekdays(Weekday)).
@@ -877,8 +1020,8 @@ series, but this can be altered by calling [`RecurrenceRule.onlyOnWeekday(day)`]
 var recurrence = CalendarApp.newRecurrence().addDailyRule()
     .addWeeklyExclusion().onlyOnWeekday(CalendarApp.Weekday.WEDNESDAY).times(4);
 ```
-@return the new RecurrenceRule*/addWeeklyExclusion():CalendarApp.RecurrenceRule;
-/**Adds a rule that causes the event to recur on a weekly basis.
+@return the new RecurrenceRule*/ addWeeklyExclusion(): CalendarApp.RecurrenceRule;
+    /**Adds a rule that causes the event to recur on a weekly basis.
 
 By default the event recurs on the same day of the week as the first event in the series,
 but this can be altered by calling [`RecurrenceRule.onlyOnWeekday(day)`](https://developers.google.com/apps-script/reference/calendar/recurrence-rule.html#onlyOnWeekday(Weekday)) or [`RecurrenceRule.onlyOnWeekdays(days)`](https://developers.google.com/apps-script/reference/calendar/recurrence-rule.html#onlyOnWeekdays(Weekday)).
@@ -887,67 +1030,79 @@ but this can be altered by calling [`RecurrenceRule.onlyOnWeekday(day)`](https:/
 // Creates a rule that recurs every week for ten weeks.
 var recurrence = CalendarApp.newRecurrence().addWeeklyRule().times(10);
 ```
-@return the new RecurrenceRule*/addWeeklyRule():CalendarApp.RecurrenceRule;
-/**Adds a rule that excludes occurrences on a yearly basis.
+@return the new RecurrenceRule*/ addWeeklyRule(): CalendarApp.RecurrenceRule;
+    /**Adds a rule that excludes occurrences on a yearly basis.
 
 By default the exclusion is applied on the same day of the year as the first event in the
 series, but this can be altered by calling [`RecurrenceRule.onlyOnYearDay(day)`](https://developers.google.com/apps-script/reference/calendar/recurrence-rule.html#onlyOnYearDay(Integer)) or [`RecurrenceRule.onlyOnYearDays(days)`](https://developers.google.com/apps-script/reference/calendar/recurrence-rule.html#onlyOnYearDays(Integer)).
-@return the new RecurrenceRule*/addYearlyExclusion():CalendarApp.RecurrenceRule;
-/**Adds a rule that causes the event to recur on a yearly basis.
+@return the new RecurrenceRule*/ addYearlyExclusion(): CalendarApp.RecurrenceRule;
+    /**Adds a rule that causes the event to recur on a yearly basis.
 
 By default the event recurs on the same day of the year as the first event in the series,
 but this can be altered by calling [`RecurrenceRule.onlyOnYearDay(day)`](https://developers.google.com/apps-script/reference/calendar/recurrence-rule.html#onlyOnYearDay(Integer)) or [`RecurrenceRule.onlyOnYearDays(days)`](https://developers.google.com/apps-script/reference/calendar/recurrence-rule.html#onlyOnYearDays(Integer)).
-@return the new RecurrenceRule*/addYearlyRule():CalendarApp.RecurrenceRule;
-/**Sets the time zone for this recurrence. This affects the date and time that events recur on,
+@return the new RecurrenceRule*/ addYearlyRule(): CalendarApp.RecurrenceRule;
+    /**Sets the time zone for this recurrence. This affects the date and time that events recur on,
 and whether the event shifts with daylight savings time. Defaults to the calendar's time zone.
 @param timeZone the time zone, specified in "long" format (e.g., 'America/New_York', as listed
     by [Joda.org](http://joda-time.sourceforge.net/timezones.html))
-@return this EventRecurrence for chaining*/setTimeZone(timeZone:string):CalendarApp.EventRecurrence;}interface EventGuest{
-/**Gets the number of additional people that this guest has said are attending.
-@return the number of additional people this guest has said are attending*/getAdditionalGuests():Integer;
-/**Gets the email address of the guest.
-@return the guest's email address*/getEmail():string;
-/**Gets the status of the guest for the event.
-@return the status of this guest*/getGuestStatus():CalendarApp.GuestStatus;
-/**Gets the name of the guest. If the name of the guest is not available, this method returns the
+@return this EventRecurrence for chaining*/ setTimeZone(
+      timeZone: string,
+    ): CalendarApp.EventRecurrence;
+  }
+  interface EventGuest {
+    /**Gets the number of additional people that this guest has said are attending.
+@return the number of additional people this guest has said are attending*/ getAdditionalGuests(): Integer;
+    /**Gets the email address of the guest.
+@return the guest's email address*/ getEmail(): string;
+    /**Gets the status of the guest for the event.
+@return the status of this guest*/ getGuestStatus(): CalendarApp.GuestStatus;
+    /**Gets the name of the guest. If the name of the guest is not available, this method returns the
 guest's email address.
-@return the guest's name, or the guest's email address if the name is not available*/getName():string;
-/**Gets the status of the guest for the event.
+@return the guest's name, or the guest's email address if the name is not available*/ getName(): string;
+    /**Gets the status of the guest for the event.
 @deprecated
-@return the status of this guest*/getStatus():string;}interface EventColor{}interface _EventColor{
-/**Blue (`"9"`), referred to as "Blueberry" in th Calendar UI.*/BLUE:EventColor;
-/**Cyan (`"7"`), referred to as "Lavender" in th Calendar UI.*/CYAN:EventColor;
-/**Gray (`"8"`), referred to as "Graphite" in th Calendar UI.*/GRAY:EventColor;
-/**Green (`"10"`), referred to as "Basil" in th Calendar UI.*/GREEN:EventColor;
-/**Mauve (`"3"`),, referred to as "Grape" in th Calendar UI.*/MAUVE:EventColor;
-/**Orange (`"6"`), referred to as "Tangerine" in th Calendar UI.*/ORANGE:EventColor;
-/**Pale Blue (`"1"`), referred to as "Peacock" in th Calendar UI.*/PALE_BLUE:EventColor;
-/**Pale Green (`"2"`), referred to as "Sage" in th Calendar UI.*/PALE_GREEN:EventColor;
-/**Pale Red (`"4"`), referred to as "Flamingo" in th Calendar UI.*/PALE_RED:EventColor;
-/**Red (`"11"`), referred to as "Tomato" in th Calendar UI.*/RED:EventColor;
-/**Yellow (`"5"`), referred to as "Banana" in th Calendar UI.*/YELLOW:EventColor;}interface Color{}interface _Color{
-/**Blue (`#2952A3`).*/BLUE:Color;
-/**Brown (`#8D6F47`).*/BROWN:Color;
-/**Charcoal (`#4E5D6C`).*/CHARCOAL:Color;
-/**Chestnut (`#865A5A`).*/CHESTNUT:Color;
-/**Gray (`#5A6986`).*/GRAY:Color;
-/**Green (`#0D7813`).*/GREEN:Color;
-/**Indigo (`#5229A3`).*/INDIGO:Color;
-/**Lime (`#528800`).*/LIME:Color;
-/**Mustard (`#88880E`).*/MUSTARD:Color;
-/**Olive (`#6E6E41`).*/OLIVE:Color;
-/**Orange (`#BE6D00`).*/ORANGE:Color;
-/**Pink (`#B1365F`).*/PINK:Color;
-/**Plum (`#705770`).*/PLUM:Color;
-/**Purple (`#7A367A`).*/PURPLE:Color;
-/**Red (`#A32929`).*/RED:Color;
-/**Red-Orange (`#B1440E`).*/RED_ORANGE:Color;
-/**Sea Blue (`#29527A`).*/SEA_BLUE:Color;
-/**Slate (`#4A716C`).*/SLATE:Color;
-/**Teal (`#28754E`).*/TEAL:Color;
-/**Turquoise (`#1B887A`).*/TURQOISE:Color;
-/**Yellow (`#AB8B00`).*/YELLOW:Color;}interface CalendarEventSeries{
-/**Adds a new email reminder to the event. The reminder must be at least 5 minutes, and at most 4
+@return the status of this guest*/ getStatus(): string;
+  }
+  interface EventColor {}
+  interface _EventColor {
+    /**Blue (`"9"`), referred to as "Blueberry" in th Calendar UI.*/ BLUE: EventColor;
+    /**Cyan (`"7"`), referred to as "Lavender" in th Calendar UI.*/ CYAN: EventColor;
+    /**Gray (`"8"`), referred to as "Graphite" in th Calendar UI.*/ GRAY: EventColor;
+    /**Green (`"10"`), referred to as "Basil" in th Calendar UI.*/ GREEN: EventColor;
+    /**Mauve (`"3"`),, referred to as "Grape" in th Calendar UI.*/ MAUVE: EventColor;
+    /**Orange (`"6"`), referred to as "Tangerine" in th Calendar UI.*/ ORANGE: EventColor;
+    /**Pale Blue (`"1"`), referred to as "Peacock" in th Calendar UI.*/ PALE_BLUE: EventColor;
+    /**Pale Green (`"2"`), referred to as "Sage" in th Calendar UI.*/ PALE_GREEN: EventColor;
+    /**Pale Red (`"4"`), referred to as "Flamingo" in th Calendar UI.*/ PALE_RED: EventColor;
+    /**Red (`"11"`), referred to as "Tomato" in th Calendar UI.*/ RED: EventColor;
+    /**Yellow (`"5"`), referred to as "Banana" in th Calendar UI.*/ YELLOW: EventColor;
+  }
+  interface Color {}
+  interface _Color {
+    /**Blue (`#2952A3`).*/ BLUE: Color;
+    /**Brown (`#8D6F47`).*/ BROWN: Color;
+    /**Charcoal (`#4E5D6C`).*/ CHARCOAL: Color;
+    /**Chestnut (`#865A5A`).*/ CHESTNUT: Color;
+    /**Gray (`#5A6986`).*/ GRAY: Color;
+    /**Green (`#0D7813`).*/ GREEN: Color;
+    /**Indigo (`#5229A3`).*/ INDIGO: Color;
+    /**Lime (`#528800`).*/ LIME: Color;
+    /**Mustard (`#88880E`).*/ MUSTARD: Color;
+    /**Olive (`#6E6E41`).*/ OLIVE: Color;
+    /**Orange (`#BE6D00`).*/ ORANGE: Color;
+    /**Pink (`#B1365F`).*/ PINK: Color;
+    /**Plum (`#705770`).*/ PLUM: Color;
+    /**Purple (`#7A367A`).*/ PURPLE: Color;
+    /**Red (`#A32929`).*/ RED: Color;
+    /**Red-Orange (`#B1440E`).*/ RED_ORANGE: Color;
+    /**Sea Blue (`#29527A`).*/ SEA_BLUE: Color;
+    /**Slate (`#4A716C`).*/ SLATE: Color;
+    /**Teal (`#28754E`).*/ TEAL: Color;
+    /**Turquoise (`#1B887A`).*/ TURQOISE: Color;
+    /**Yellow (`#AB8B00`).*/ YELLOW: Color;
+  }
+  interface CalendarEventSeries {
+    /**Adds a new email reminder to the event. The reminder must be at least 5 minutes, and at most 4
 weeks (40320 minutes), before the event.
 
 ```
@@ -959,8 +1114,10 @@ const event = CalendarApp.getEventById('abc123456');
 event.addEmailReminder(15);
 ```
 @param minutesBefore the number of minutes before the event
-@return this [`CalendarEventSeries`](https://developers.google.com/apps-script/reference/calendar/calendar-event-series.html) for chaining*/addEmailReminder(minutesBefore:Integer):CalendarApp.CalendarEventSeries;
-/**Adds a guest to the event.
+@return this [`CalendarEventSeries`](https://developers.google.com/apps-script/reference/calendar/calendar-event-series.html) for chaining*/ addEmailReminder(
+      minutesBefore: Integer,
+    ): CalendarApp.CalendarEventSeries;
+    /**Adds a guest to the event.
 
 ```
 // Example 1: Add a guest to one event
@@ -1010,8 +1167,10 @@ function addAttendeeToAllEvents(){
 }
 ```
 @param email The email address of the guest.
-@return This [`CalendarEventSeries`](https://developers.google.com/apps-script/reference/calendar/calendar-event-series.html) for chaining.*/addGuest(email:string):CalendarApp.CalendarEventSeries;
-/**Adds a new pop-up notification to the event. The notification must be at least 5 minutes, and
+@return This [`CalendarEventSeries`](https://developers.google.com/apps-script/reference/calendar/calendar-event-series.html) for chaining.*/ addGuest(
+      email: string,
+    ): CalendarApp.CalendarEventSeries;
+    /**Adds a new pop-up notification to the event. The notification must be at least 5 minutes, and
 at most 4 weeks (40320 minutes), before the event.
 
 ```
@@ -1023,12 +1182,16 @@ const event = CalendarApp.getEventById('abc123456');
 event.addPopupReminder(15);
 ```
 @param minutesBefore the number of minutes before the event
-@return this [`CalendarEventSeries`](https://developers.google.com/apps-script/reference/calendar/calendar-event-series.html) for chaining*/addPopupReminder(minutesBefore:Integer):CalendarApp.CalendarEventSeries;
-/**Adds a new SMS reminder to the event. The reminder must be at least 5 minutes, and at most 4
+@return this [`CalendarEventSeries`](https://developers.google.com/apps-script/reference/calendar/calendar-event-series.html) for chaining*/ addPopupReminder(
+      minutesBefore: Integer,
+    ): CalendarApp.CalendarEventSeries;
+    /**Adds a new SMS reminder to the event. The reminder must be at least 5 minutes, and at most 4
 weeks (40320 minutes), before the event.
 @param minutesBefore the number of minutes before the event
-@return this [`CalendarEventSeries`](https://developers.google.com/apps-script/reference/calendar/calendar-event-series.html) for chaining*/addSmsReminder(minutesBefore:Integer):CalendarApp.CalendarEventSeries;
-/**Determines whether people can add themselves as guests to a Calendar event.
+@return this [`CalendarEventSeries`](https://developers.google.com/apps-script/reference/calendar/calendar-event-series.html) for chaining*/ addSmsReminder(
+      minutesBefore: Integer,
+    ): CalendarApp.CalendarEventSeries;
+    /**Determines whether people can add themselves as guests to a Calendar event.
 
 ```
 // Gets an event by its ID. For an event series, use getEventSeriesById(iCalId) instead.
@@ -1038,14 +1201,16 @@ const event = CalendarApp.getEventById('abc123456');
 // Determines whether people can add themselves as guests to the event and logs it.
 console.log(event.anyoneCanAddSelf());
 ```
-@return `true` if non-guests can add themselves to the event; `false` if not*/anyoneCanAddSelf():boolean;
-/**Deletes the event series.*/deleteEventSeries():void;
-/**Deletes a key/value tag from the event.
+@return `true` if non-guests can add themselves to the event; `false` if not*/ anyoneCanAddSelf(): boolean;
+    /**Deletes the event series.*/ deleteEventSeries(): void;
+    /**Deletes a key/value tag from the event.
 @param key the tag key
-@return this [`CalendarEventSeries`](https://developers.google.com/apps-script/reference/calendar/calendar-event-series.html) for chaining*/deleteTag(key:string):CalendarApp.CalendarEventSeries;
-/**Gets all keys for tags that have been set on the event.
-@return an array of string keys*/getAllTagKeys():string[];
-/**Returns the color of the calendar event.
+@return this [`CalendarEventSeries`](https://developers.google.com/apps-script/reference/calendar/calendar-event-series.html) for chaining*/ deleteTag(
+      key: string,
+    ): CalendarApp.CalendarEventSeries;
+    /**Gets all keys for tags that have been set on the event.
+@return an array of string keys*/ getAllTagKeys(): string[];
+    /**Returns the color of the calendar event.
 
 ```
 // Gets an event by its ID. For an event series, use getEventSeriesById(iCalId) instead.
@@ -1056,8 +1221,8 @@ const event = CalendarApp.getEventById('abc123456');
 const eventColor = event.getColor();
 console.log(eventColor);
 ```
-@return The string representation of the event color, as an index (1-11) of values from [`CalendarApp.EventColor`](https://developers.google.com/apps-script/reference/calendar/event-color.html).*/getColor():string;
-/**Gets the creators of an event.
+@return The string representation of the event color, as an index (1-11) of values from [`CalendarApp.EventColor`](https://developers.google.com/apps-script/reference/calendar/event-color.html).*/ getColor(): string;
+    /**Gets the creators of an event.
 
 ```
 // Gets an event by its ID. For an event series, use getEventSeriesById(iCalId) instead.
@@ -1067,8 +1232,8 @@ const event = CalendarApp.getEventById('abc123456');
 // Gets a list of the creators of the event and logs it.
 console.log(event.getCreators());
 ```
-@return the email addresses of the event's creators*/getCreators():string[];
-/**Gets the date the event was created. You must have access to the calendar.
+@return the email addresses of the event's creators*/ getCreators(): string[];
+    /**Gets the date the event was created. You must have access to the calendar.
 
 ```
 // Opens the calendar by using its ID.
@@ -1093,8 +1258,8 @@ if (event) {
  console.log('No events exist for the specified range');
 }
 ```
-@return the date of creation*/getDateCreated():Date;
-/**Gets the description of the event. You must have edit access to the calendar.
+@return the date of creation*/ getDateCreated(): Date;
+    /**Gets the description of the event. You must have edit access to the calendar.
 
 ```
 // Opens the calendar by its ID.
@@ -1121,8 +1286,8 @@ if (event) {
  console.log('No events exist for the specified range');
 }
 ```
-@return the description*/getDescription():string;
-/**Gets the minute values for all email reminders for the event. You must have edit access to the
+@return the description*/ getDescription(): string;
+    /**Gets the minute values for all email reminders for the event. You must have edit access to the
 calendar.
 
 ```
@@ -1153,10 +1318,10 @@ if (event) {
 }
 ```
 @return an array in which each value corresponds to the number of minutes before the event that
-    a reminder triggers*/getEmailReminders():Integer[];
-/**Get the [`EventType`](https://developers.google.com/apps-script/reference/calendar/event-type.html) of this event.
-@return The event type.*/getEventType():CalendarApp.EventType;
-/**Gets a guest by email address.
+    a reminder triggers*/ getEmailReminders(): Integer[];
+    /**Get the [`EventType`](https://developers.google.com/apps-script/reference/calendar/event-type.html) of this event.
+@return The event type.*/ getEventType(): CalendarApp.EventType;
+    /**Gets a guest by email address.
 
 ```
 // Opens the calendar by its ID. You must have edit access to the calendar.
@@ -1179,8 +1344,10 @@ if (guestEmailId) {
 }
 ```
 @param email the address of the guest
-@return the guest, or null if the email address does not correspond to a guest*/getGuestByEmail(email:string):CalendarApp.EventGuest;
-/**Gets the guests for the event, not including the event owner.
+@return the guest, or null if the email address does not correspond to a guest*/ getGuestByEmail(
+      email: string,
+    ): CalendarApp.EventGuest;
+    /**Gets the guests for the event, not including the event owner.
 
 ```
 // Opens the calendar by its ID. You must have edit access to the calendar.
@@ -1206,8 +1373,8 @@ for (const guest of guestList){
   console.log(guest.getEmail());
 }
 ```
-@return an array of the guests*/getGuestList():CalendarApp.EventGuest[];
-/**Gets the guests for the event, potentially including the event owners.
+@return an array of the guests*/ getGuestList(): CalendarApp.EventGuest[];
+    /**Gets the guests for the event, potentially including the event owners.
 
 ```
 // Opens the calendar by its ID. You must have edit access to the calendar.
@@ -1230,8 +1397,10 @@ for (const guest of guestList) {
 }
 ```
 @param includeOwner whether to include the owners as a guest
-@return an array of the guests*/getGuestList(includeOwner:boolean):CalendarApp.EventGuest[];
-/**Gets the unique iCalUID of the event. Note that the iCalUID and the event [`id`](/calendar/v3/reference/events#resource-representations) used by the
+@return an array of the guests*/ getGuestList(
+      includeOwner: boolean,
+    ): CalendarApp.EventGuest[];
+    /**Gets the unique iCalUID of the event. Note that the iCalUID and the event [`id`](/calendar/v3/reference/events#resource-representations) used by the
 [Calendar v3 API](/calendar/v3/reference/) and [Calendar advanced service](/apps-script/advanced/calendar) are not identical and
 cannot be used interchangeably. One difference in their semantics is that in recurring events
 all occurrences of one event have different `ids` while they all share the same iCalUIDs.
@@ -1251,8 +1420,8 @@ const event =
 // Gets the ID of the event and logs it.
 console.log(event.getId());
 ```
-@return the iCalUID of the event*/getId():string;
-/**Gets the date the event was last updated.
+@return the iCalUID of the event*/ getId(): string;
+    /**Gets the date the event was last updated.
 
 ```
 // Opens the calendar by its ID. You must have view access to the calendar.
@@ -1270,8 +1439,8 @@ const event =
 const eventUpdatedDate = event.getLastUpdated();
 console.log(eventUpdatedDate);
 ```
-@return the last updated date*/getLastUpdated():Date;
-/**Gets the location of the event.
+@return the last updated date*/ getLastUpdated(): Date;
+    /**Gets the location of the event.
 
 ```
 // Opens the calendar by its ID. You must have edit access to the calendar.
@@ -1297,8 +1466,8 @@ if (event) {
  console.log('No events exist for the specified range');
 }
 ```
-@return the event location*/getLocation():string;
-/**Gets the event status (such as attending or invited) of the effective user. Always returns
+@return the event location*/ getLocation(): string;
+    /**Gets the event status (such as attending or invited) of the effective user. Always returns
 `GuestStatus.OWNER` if the effective user is the owner of the event.
 
 ```
@@ -1323,8 +1492,8 @@ if (event) {
  console.log('No events exist for the specified range');
 }
 ```
-@return the status*/getMyStatus():CalendarApp.GuestStatus;
-/**Get the ID of the calendar where this event was originally created.
+@return the status*/ getMyStatus(): CalendarApp.GuestStatus;
+    /**Get the ID of the calendar where this event was originally created.
 
 ```
 // Opens the calendar by its ID. You must have edit access to the calendar.
@@ -1348,8 +1517,8 @@ if (event) {
  console.log('No events exist for the specified range');
 }
 ```
-@return the ID of the original calendar*/getOriginalCalendarId():string;
-/**Gets the minute values for all pop-up reminders for the event.
+@return the ID of the original calendar*/ getOriginalCalendarId(): string;
+    /**Gets the minute values for all pop-up reminders for the event.
 
 ```
   // Opens the calendar by its ID. You must have edit access to the calendar.
@@ -1379,14 +1548,14 @@ if (event) {
 }
 ```
 @return an array in which each value corresponds to the number of minutes before the event that
-    a reminder triggers*/getPopupReminders():Integer[];
-/**Gets the minute values for all SMS reminders for the event.
+    a reminder triggers*/ getPopupReminders(): Integer[];
+    /**Gets the minute values for all SMS reminders for the event.
 @return an array in which each value corresponds to the number of minutes before the event that
-    a reminder triggers*/getSmsReminders():Integer[];
-/**Gets a tag value of the event.
+    a reminder triggers*/ getSmsReminders(): Integer[];
+    /**Gets a tag value of the event.
 @param key the key
-@return the tag value*/getTag(key:string):string;
-/**Gets the title of the event.
+@return the tag value*/ getTag(key: string): string;
+    /**Gets the title of the event.
 
 ```
 // Opens the calendar by its ID. You must have edit access to the calendar.
@@ -1408,8 +1577,8 @@ if (event) {
  console.log('No events exist for the specified range');
 }
 ```
-@return the title*/getTitle():string;
-/**Gets the visibility of the event.
+@return the title*/ getTitle(): string;
+    /**Gets the visibility of the event.
 
 ```
 // Opens the calendar by its ID. You must have edit access to the calendar.
@@ -1433,8 +1602,8 @@ if (event) {
  console.log('No events exist for the specified range');
 }
 ```
-@return the visibility value*/getVisibility():CalendarApp.Visibility;
-/**Determines whether guests can invite other guests.
+@return the visibility value*/ getVisibility(): CalendarApp.Visibility;
+    /**Determines whether guests can invite other guests.
 
 ```
 // Opens the calendar by its ID. You must have view access to the calendar.
@@ -1457,8 +1626,8 @@ if (event) {
  console.log('No events exist for the specified range');
 }
 ```
-@return `true` if guests can invite others; `false` if not*/guestsCanInviteOthers():boolean;
-/**Determines whether guests can modify the event.
+@return `true` if guests can invite others; `false` if not*/ guestsCanInviteOthers(): boolean;
+    /**Determines whether guests can modify the event.
 
 ```
 // Opens the calendar by its ID. You must have edit access to the calendar.
@@ -1484,8 +1653,8 @@ if (event) {
  console.log('No events exist for the specified range');
 }
 ```
-@return `true` if guests can modify the event; `false` if not*/guestsCanModify():boolean;
-/**Determines whether guests can see other guests.
+@return `true` if guests can modify the event; `false` if not*/ guestsCanModify(): boolean;
+    /**Determines whether guests can see other guests.
 
 ```
 // Opens the calendar by its ID. You must have view access to the calendar.
@@ -1508,8 +1677,8 @@ if (event) {
  console.log('No events exist for the specified range');
 }
 ```
-@return `true` if guests can see other guests; `false` if not*/guestsCanSeeGuests():boolean;
-/**Determines whether you're the owner of the event.
+@return `true` if guests can see other guests; `false` if not*/ guestsCanSeeGuests(): boolean;
+    /**Determines whether you're the owner of the event.
 
 ```
 // Opens the calendar by its ID. You must have view access to the calendar.
@@ -1532,8 +1701,8 @@ if (event) {
  console.log('No events exist for the specified range');
 }
 ```
-@return `true` if the event is owned by the effective user; `false` if not*/isOwnedByMe():boolean;
-/**Removes all reminders from the event.
+@return `true` if the event is owned by the effective user; `false` if not*/ isOwnedByMe(): boolean;
+    /**Removes all reminders from the event.
 
 ```
 // Opens the calendar by its ID. You must have edit access to the calendar
@@ -1555,8 +1724,8 @@ if (event) {
  console.log('No events exist for the specified range');
 }
 ```
-@return this [`CalendarEventSeries`](https://developers.google.com/apps-script/reference/calendar/calendar-event-series.html) for chaining*/removeAllReminders():CalendarApp.CalendarEventSeries;
-/**Removes a guest from the event.
+@return this [`CalendarEventSeries`](https://developers.google.com/apps-script/reference/calendar/calendar-event-series.html) for chaining*/ removeAllReminders(): CalendarApp.CalendarEventSeries;
+    /**Removes a guest from the event.
 
 ```
 // Example 1: Remove a guest from one event
@@ -1606,8 +1775,10 @@ function removeGuestFromAllEvents(){
 }
 ```
 @param email the email address of the guest
-@return this [`CalendarEventSeries`](https://developers.google.com/apps-script/reference/calendar/calendar-event-series.html) for chaining*/removeGuest(email:string):CalendarApp.CalendarEventSeries;
-/**Resets the reminders using the calendar's default settings.
+@return this [`CalendarEventSeries`](https://developers.google.com/apps-script/reference/calendar/calendar-event-series.html) for chaining*/ removeGuest(
+      email: string,
+    ): CalendarApp.CalendarEventSeries;
+    /**Resets the reminders using the calendar's default settings.
 
 ```
 // Opens the calendar by its ID. You must have edit access to the calendar.
@@ -1630,8 +1801,8 @@ if (event) {
  console.log('No events exist for the specified range');
 }
 ```
-@return this [`CalendarEventSeries`](https://developers.google.com/apps-script/reference/calendar/calendar-event-series.html) for chaining*/resetRemindersToDefault():CalendarApp.CalendarEventSeries;
-/**Sets whether non-guests can add themselves to the event.
+@return this [`CalendarEventSeries`](https://developers.google.com/apps-script/reference/calendar/calendar-event-series.html) for chaining*/ resetRemindersToDefault(): CalendarApp.CalendarEventSeries;
+    /**Sets whether non-guests can add themselves to the event.
 
 ```
 // Opens the calendar by its ID. You must have edit access to the calendar.
@@ -1655,8 +1826,10 @@ if (event) {
 }
 ```
 @param anyoneCanAddSelf whether anyone can invite themselves
-@return this [`CalendarEventSeries`](https://developers.google.com/apps-script/reference/calendar/calendar-event-series.html) for chaining*/setAnyoneCanAddSelf(anyoneCanAddSelf:boolean):CalendarApp.CalendarEventSeries;
-/**Sets the color of the calendar event.
+@return this [`CalendarEventSeries`](https://developers.google.com/apps-script/reference/calendar/calendar-event-series.html) for chaining*/ setAnyoneCanAddSelf(
+      anyoneCanAddSelf: boolean,
+    ): CalendarApp.CalendarEventSeries;
+    /**Sets the color of the calendar event.
 
 ```
 // Opens the calendar by its ID. You must have edit access to the calendar.
@@ -1680,8 +1853,10 @@ if (event) {
 }
 ```
 @param color An integer color index as a string, or a value from [`CalendarApp.EventColor`](https://developers.google.com/apps-script/reference/calendar/event-color.html).
-@return This calendar event, for chaining.*/setColor(color:string):CalendarApp.CalendarEventSeries;
-/**Sets the description of the event.
+@return This calendar event, for chaining.*/ setColor(
+      color: string,
+    ): CalendarApp.CalendarEventSeries;
+    /**Sets the description of the event.
 
 ```
 // Opens the calendar by its ID. You must have edit access to the calendar.
@@ -1705,8 +1880,10 @@ if (event) {
 }
 ```
 @param description the new description
-@return this [`CalendarEventSeries`](https://developers.google.com/apps-script/reference/calendar/calendar-event-series.html) for chaining*/setDescription(description:string):CalendarApp.CalendarEventSeries;
-/**Sets whether guests can invite other guests.
+@return this [`CalendarEventSeries`](https://developers.google.com/apps-script/reference/calendar/calendar-event-series.html) for chaining*/ setDescription(
+      description: string,
+    ): CalendarApp.CalendarEventSeries;
+    /**Sets whether guests can invite other guests.
 
 ```
 // Opens the calendar by its ID.
@@ -1730,14 +1907,20 @@ if (event) {
 }
 ```
 @param guestsCanInviteOthers whether guests can invite others
-@return this [`CalendarEventSeries`](https://developers.google.com/apps-script/reference/calendar/calendar-event-series.html) for chaining*/setGuestsCanInviteOthers(guestsCanInviteOthers:boolean):CalendarApp.CalendarEventSeries;
-/**Sets whether guests can modify the event.
+@return this [`CalendarEventSeries`](https://developers.google.com/apps-script/reference/calendar/calendar-event-series.html) for chaining*/ setGuestsCanInviteOthers(
+      guestsCanInviteOthers: boolean,
+    ): CalendarApp.CalendarEventSeries;
+    /**Sets whether guests can modify the event.
 @param guestsCanModify whether guests can modify the event
-@return this [`CalendarEventSeries`](https://developers.google.com/apps-script/reference/calendar/calendar-event-series.html) for chaining*/setGuestsCanModify(guestsCanModify:boolean):CalendarApp.CalendarEventSeries;
-/**Sets whether guests can see other guests.
+@return this [`CalendarEventSeries`](https://developers.google.com/apps-script/reference/calendar/calendar-event-series.html) for chaining*/ setGuestsCanModify(
+      guestsCanModify: boolean,
+    ): CalendarApp.CalendarEventSeries;
+    /**Sets whether guests can see other guests.
 @param guestsCanSeeGuests whether guests can see others
-@return this [`CalendarEventSeries`](https://developers.google.com/apps-script/reference/calendar/calendar-event-series.html) for chaining*/setGuestsCanSeeGuests(guestsCanSeeGuests:boolean):CalendarApp.CalendarEventSeries;
-/**Sets the location of the event.
+@return this [`CalendarEventSeries`](https://developers.google.com/apps-script/reference/calendar/calendar-event-series.html) for chaining*/ setGuestsCanSeeGuests(
+      guestsCanSeeGuests: boolean,
+    ): CalendarApp.CalendarEventSeries;
+    /**Sets the location of the event.
 
 ```
 // Opens the calendar by its ID. You must have edit access to the calendar.
@@ -1760,8 +1943,10 @@ if (event) {
 }
 ```
 @param location the new location
-@return this [`CalendarEventSeries`](https://developers.google.com/apps-script/reference/calendar/calendar-event-series.html) for chaining*/setLocation(location:string):CalendarApp.CalendarEventSeries;
-/**Sets the event status (such as attending or invited) of the effective user.
+@return this [`CalendarEventSeries`](https://developers.google.com/apps-script/reference/calendar/calendar-event-series.html) for chaining*/ setLocation(
+      location: string,
+    ): CalendarApp.CalendarEventSeries;
+    /**Sets the event status (such as attending or invited) of the effective user.
 
 ```
 // Opens the calendar by its ID. You must have edit access to the calendar.
@@ -1785,8 +1970,10 @@ if (event) {
 }
 ```
 @param status the new status
-@return this [`CalendarEventSeries`](https://developers.google.com/apps-script/reference/calendar/calendar-event-series.html) for chaining*/setMyStatus(status:CalendarApp.GuestStatus):CalendarApp.CalendarEventSeries;
-/**Sets the recurrence rules for an all-day event series. Applying this method changes a regular
+@return this [`CalendarEventSeries`](https://developers.google.com/apps-script/reference/calendar/calendar-event-series.html) for chaining*/ setMyStatus(
+      status: CalendarApp.GuestStatus,
+    ): CalendarApp.CalendarEventSeries;
+    /**Sets the recurrence rules for an all-day event series. Applying this method changes a regular
 event series into an all-day event series.
 
 ```
@@ -1801,8 +1988,11 @@ eventSeries.setRecurrence(recurrence, startDate);
 @param recurrence the recurrence rules to use
 @param startDate the date of the first event in the series (only the day is used; the time is
     ignored)
-@return this CalendarEventSeries for chaining*/setRecurrence(recurrence:CalendarApp.EventRecurrence,startDate:Date):CalendarApp.CalendarEventSeries;
-/**Sets the recurrence rules for this event series. Applying this method changes an all-day event
+@return this CalendarEventSeries for chaining*/ setRecurrence(
+      recurrence: CalendarApp.EventRecurrence,
+      startDate: Date,
+    ): CalendarApp.CalendarEventSeries;
+    /**Sets the recurrence rules for this event series. Applying this method changes an all-day event
 series into a regular event series.
 
 ```
@@ -1819,12 +2009,19 @@ eventSeries.setRecurrence(recurrence, startTime, endTime);
 @param recurrence the recurrence rules to use
 @param startTime the date and time when the first event in the series starts
 @param endTime the date and time when the first event in the series ends
-@return this CalendarEventSeries for chaining*/setRecurrence(recurrence:CalendarApp.EventRecurrence,startTime:Date,endTime:Date):CalendarApp.CalendarEventSeries;
-/**Sets a key/value tag on the event, for storing custom metadata.
+@return this CalendarEventSeries for chaining*/ setRecurrence(
+      recurrence: CalendarApp.EventRecurrence,
+      startTime: Date,
+      endTime: Date,
+    ): CalendarApp.CalendarEventSeries;
+    /**Sets a key/value tag on the event, for storing custom metadata.
 @param key the tag key
 @param value the tag value
-@return this [`CalendarEventSeries`](https://developers.google.com/apps-script/reference/calendar/calendar-event-series.html) for chaining*/setTag(key:string,value:string):CalendarApp.CalendarEventSeries;
-/**Sets the title of the event.
+@return this [`CalendarEventSeries`](https://developers.google.com/apps-script/reference/calendar/calendar-event-series.html) for chaining*/ setTag(
+      key: string,
+      value: string,
+    ): CalendarApp.CalendarEventSeries;
+    /**Sets the title of the event.
 
 ```
 // Opens the calendar by its ID. You must have edit access to the calendar.
@@ -1847,10 +2044,16 @@ if (event) {
 }
 ```
 @param title the new title
-@return this [`CalendarEventSeries`](https://developers.google.com/apps-script/reference/calendar/calendar-event-series.html) for chaining*/setTitle(title:string):CalendarApp.CalendarEventSeries;
-/**Sets the visibility of the event.
-@return this [`CalendarEventSeries`](https://developers.google.com/apps-script/reference/calendar/calendar-event-series.html) for chaining*/setVisibility(visibility:CalendarApp.Visibility):CalendarApp.CalendarEventSeries;}interface CalendarEvent{
-/**Adds a new email reminder to the event. The reminder must be at least 5 minutes, and at most 4
+@return this [`CalendarEventSeries`](https://developers.google.com/apps-script/reference/calendar/calendar-event-series.html) for chaining*/ setTitle(
+      title: string,
+    ): CalendarApp.CalendarEventSeries;
+    /**Sets the visibility of the event.
+@return this [`CalendarEventSeries`](https://developers.google.com/apps-script/reference/calendar/calendar-event-series.html) for chaining*/ setVisibility(
+      visibility: CalendarApp.Visibility,
+    ): CalendarApp.CalendarEventSeries;
+  }
+  interface CalendarEvent {
+    /**Adds a new email reminder to the event. The reminder must be at least 5 minutes, and at most 4
 weeks (40320 minutes), before the event.
 
 ```
@@ -1862,8 +2065,10 @@ const event = CalendarApp.getEventById('abc123456');
 event.addEmailReminder(15);
 ```
 @param minutesBefore the number of minutes before the event
-@return this [`CalendarEvent`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html) for chaining*/addEmailReminder(minutesBefore:Integer):CalendarApp.CalendarEvent;
-/**Adds a guest to the event.
+@return this [`CalendarEvent`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html) for chaining*/ addEmailReminder(
+      minutesBefore: Integer,
+    ): CalendarApp.CalendarEvent;
+    /**Adds a guest to the event.
 
 ```
 // Example 1: Add a guest to one event
@@ -1913,8 +2118,10 @@ function addAttendeeToAllEvents(){
 }
 ```
 @param email The email address of the guest.
-@return This [`CalendarEvent`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html) for chaining.*/addGuest(email:string):CalendarApp.CalendarEvent;
-/**Adds a new pop-up notification to the event. The notification must be at least 5 minutes, and
+@return This [`CalendarEvent`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html) for chaining.*/ addGuest(
+      email: string,
+    ): CalendarApp.CalendarEvent;
+    /**Adds a new pop-up notification to the event. The notification must be at least 5 minutes, and
 at most 4 weeks (40320 minutes), before the event.
 
 ```
@@ -1926,12 +2133,16 @@ const event = CalendarApp.getEventById('abc123456');
 event.addPopupReminder(15);
 ```
 @param minutesBefore the number of minutes before the event
-@return this [`CalendarEvent`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html) for chaining*/addPopupReminder(minutesBefore:Integer):CalendarApp.CalendarEvent;
-/**Adds a new SMS reminder to the event. The reminder must be at least 5 minutes, and at most 4
+@return this [`CalendarEvent`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html) for chaining*/ addPopupReminder(
+      minutesBefore: Integer,
+    ): CalendarApp.CalendarEvent;
+    /**Adds a new SMS reminder to the event. The reminder must be at least 5 minutes, and at most 4
 weeks (40320 minutes), before the event.
 @param minutesBefore the number of minutes before the event
-@return this [`CalendarEvent`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html) for chaining*/addSmsReminder(minutesBefore:Integer):CalendarApp.CalendarEvent;
-/**Determines whether people can add themselves as guests to a Calendar event.
+@return this [`CalendarEvent`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html) for chaining*/ addSmsReminder(
+      minutesBefore: Integer,
+    ): CalendarApp.CalendarEvent;
+    /**Determines whether people can add themselves as guests to a Calendar event.
 
 ```
 // Gets an event by its ID. For an event series, use getEventSeriesById(iCalId) instead.
@@ -1941,8 +2152,8 @@ const event = CalendarApp.getEventById('abc123456');
 // Determines whether people can add themselves as guests to the event and logs it.
 console.log(event.anyoneCanAddSelf());
 ```
-@return `true` if non-guests can add themselves to the event; `false` if not*/anyoneCanAddSelf():boolean;
-/**Deletes a Calendar event.
+@return `true` if non-guests can add themselves to the event; `false` if not*/ anyoneCanAddSelf(): boolean;
+    /**Deletes a Calendar event.
 
 ```
 // Gets an event by its ID.
@@ -1951,11 +2162,13 @@ const event = CalendarApp.getEventById('abc123456');
 
 // Deletes the event.
 event.deleteEvent();
-```*/deleteEvent():void;
-/**Deletes a key/value tag from the event.
+```*/ deleteEvent(): void;
+    /**Deletes a key/value tag from the event.
 @param key the tag key
-@return this [`CalendarEvent`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html) for chaining*/deleteTag(key:string):CalendarApp.CalendarEvent;
-/**Gets the date on which this all-day calendar event ends. (If this is not an all-day event, then
+@return this [`CalendarEvent`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html) for chaining*/ deleteTag(
+      key: string,
+    ): CalendarApp.CalendarEvent;
+    /**Gets the date on which this all-day calendar event ends. (If this is not an all-day event, then
 this method throws an exception.) The returned `Date` represents midnight at the
 beginning of the day after the event ends _in the script's time zone_. To use the
 calendar's time zone instead, call [`getEndTime()`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html#getEndTime()).
@@ -1972,8 +2185,8 @@ const event = calendar.createAllDayEvent('My all-day event', new Date('May 16, 2
 const endDate = event.getAllDayEndDate();
 console.log(endDate);
 ```
-@return this all-day calendar event's end date*/getAllDayEndDate():Date;
-/**Gets the date on which this all-day calendar event begins. (If this is not an all-day event,
+@return this all-day calendar event's end date*/ getAllDayEndDate(): Date;
+    /**Gets the date on which this all-day calendar event begins. (If this is not an all-day event,
 then this method throws an exception.) The returned `Date` represents midnight at the
 beginning of the day on which the event starts _in the script's time zone_. To use the
 calendar's time zone instead, call [`getStartTime()`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html#getStartTime()).
@@ -1990,10 +2203,10 @@ const event = calendar.createAllDayEvent('My all-day event', new Date('May 16, 2
 const startDate = event.getAllDayStartDate();
 console.log(startDate);
 ```
-@return this all-day calendar event's start date*/getAllDayStartDate():Date;
-/**Gets all keys for tags that have been set on the event.
-@return an array of string keys*/getAllTagKeys():string[];
-/**Returns the color of the calendar event.
+@return this all-day calendar event's start date*/ getAllDayStartDate(): Date;
+    /**Gets all keys for tags that have been set on the event.
+@return an array of string keys*/ getAllTagKeys(): string[];
+    /**Returns the color of the calendar event.
 
 ```
 // Gets an event by its ID. For an event series, use getEventSeriesById(iCalId) instead.
@@ -2004,8 +2217,8 @@ const event = CalendarApp.getEventById('abc123456');
 const eventColor = event.getColor();
 console.log(eventColor);
 ```
-@return The string representation of the event color, as an index (1-11) of values from [`CalendarApp.EventColor`](https://developers.google.com/apps-script/reference/calendar/event-color.html).*/getColor():string;
-/**Gets the creators of an event.
+@return The string representation of the event color, as an index (1-11) of values from [`CalendarApp.EventColor`](https://developers.google.com/apps-script/reference/calendar/event-color.html).*/ getColor(): string;
+    /**Gets the creators of an event.
 
 ```
 // Gets an event by its ID. For an event series, use getEventSeriesById(iCalId) instead.
@@ -2015,8 +2228,8 @@ const event = CalendarApp.getEventById('abc123456');
 // Gets a list of the creators of the event and logs it.
 console.log(event.getCreators());
 ```
-@return the email addresses of the event's creators*/getCreators():string[];
-/**Gets the date the event was created. You must have access to the calendar.
+@return the email addresses of the event's creators*/ getCreators(): string[];
+    /**Gets the date the event was created. You must have access to the calendar.
 
 ```
 // Opens the calendar by using its ID.
@@ -2041,8 +2254,8 @@ if (event) {
  console.log('No events exist for the specified range');
 }
 ```
-@return the date of creation*/getDateCreated():Date;
-/**Gets the description of the event. You must have edit access to the calendar.
+@return the date of creation*/ getDateCreated(): Date;
+    /**Gets the description of the event. You must have edit access to the calendar.
 
 ```
 // Opens the calendar by its ID.
@@ -2069,8 +2282,8 @@ if (event) {
  console.log('No events exist for the specified range');
 }
 ```
-@return the description*/getDescription():string;
-/**Gets the minute values for all email reminders for the event. You must have edit access to the
+@return the description*/ getDescription(): string;
+    /**Gets the minute values for all email reminders for the event. You must have edit access to the
 calendar.
 
 ```
@@ -2101,8 +2314,8 @@ if (event) {
 }
 ```
 @return an array in which each value corresponds to the number of minutes before the event that
-    a reminder triggers*/getEmailReminders():Integer[];
-/**Gets the date and time at which this calendar event ends. You must have access to the calendar.
+    a reminder triggers*/ getEmailReminders(): Integer[];
+    /**Gets the date and time at which this calendar event ends. You must have access to the calendar.
 For non–all-day events, this is the instant in time at which the event was defined to
 end. For all-day events, which only store an end date (not a date and time), this is midnight
 at the beginning of the day after the event ends _in the calendar's time zone_. This
@@ -2131,8 +2344,8 @@ if (event) {
  console.log('No events exist for the specified range');
 }
 ```
-@return this calendar event's end time*/getEndTime():Date;
-/**Gets the series of recurring events that this event belongs to. You must have access to the
+@return this calendar event's end time*/ getEndTime(): Date;
+    /**Gets the series of recurring events that this event belongs to. You must have access to the
 calendar. A [`CalendarEventSeries`](https://developers.google.com/apps-script/reference/calendar/calendar-event-series.html) object is returned even if this event doesn't belong to
 a series, so that you can add new recurrence settings.
 
@@ -2156,10 +2369,10 @@ if (event) {
 }
 ```
 @return the event series this event belongs to, or a new event series if it does not yet belong
-    to a series*/getEventSeries():CalendarApp.CalendarEventSeries;
-/**Get the [`EventType`](https://developers.google.com/apps-script/reference/calendar/event-type.html) of this event.
-@return The event type.*/getEventType():CalendarApp.EventType;
-/**Gets a guest by email address.
+    to a series*/ getEventSeries(): CalendarApp.CalendarEventSeries;
+    /**Get the [`EventType`](https://developers.google.com/apps-script/reference/calendar/event-type.html) of this event.
+@return The event type.*/ getEventType(): CalendarApp.EventType;
+    /**Gets a guest by email address.
 
 ```
 // Opens the calendar by its ID. You must have edit access to the calendar.
@@ -2182,8 +2395,10 @@ if (guestEmailId) {
 }
 ```
 @param email the address of the guest
-@return the guest, or null if the email address does not correspond to a guest*/getGuestByEmail(email:string):CalendarApp.EventGuest;
-/**Gets the guests for the event, not including the event owner.
+@return the guest, or null if the email address does not correspond to a guest*/ getGuestByEmail(
+      email: string,
+    ): CalendarApp.EventGuest;
+    /**Gets the guests for the event, not including the event owner.
 
 ```
 // Opens the calendar by its ID. You must have edit access to the calendar.
@@ -2209,8 +2424,8 @@ for (const guest of guestList){
   console.log(guest.getEmail());
 }
 ```
-@return an array of the guests*/getGuestList():CalendarApp.EventGuest[];
-/**Gets the guests for the event, potentially including the event owners.
+@return an array of the guests*/ getGuestList(): CalendarApp.EventGuest[];
+    /**Gets the guests for the event, potentially including the event owners.
 
 ```
 // Opens the calendar by its ID. You must have edit access to the calendar.
@@ -2233,8 +2448,10 @@ for (const guest of guestList) {
 }
 ```
 @param includeOwner whether to include the owners as a guest
-@return an array of the guests*/getGuestList(includeOwner:boolean):CalendarApp.EventGuest[];
-/**Gets the unique iCalUID of the event. Note that the iCalUID and the event [`id`](/calendar/v3/reference/events#resource-representations) used by the
+@return an array of the guests*/ getGuestList(
+      includeOwner: boolean,
+    ): CalendarApp.EventGuest[];
+    /**Gets the unique iCalUID of the event. Note that the iCalUID and the event [`id`](/calendar/v3/reference/events#resource-representations) used by the
 [Calendar v3 API](/calendar/v3/reference/) and [Calendar advanced service](/apps-script/advanced/calendar) are not identical and
 cannot be used interchangeably. One difference in their semantics is that in recurring events
 all occurrences of one event have different `ids` while they all share the same iCalUIDs.
@@ -2254,8 +2471,8 @@ const event =
 // Gets the ID of the event and logs it.
 console.log(event.getId());
 ```
-@return the iCalUID of the event*/getId():string;
-/**Gets the date the event was last updated.
+@return the iCalUID of the event*/ getId(): string;
+    /**Gets the date the event was last updated.
 
 ```
 // Opens the calendar by its ID. You must have view access to the calendar.
@@ -2273,8 +2490,8 @@ const event =
 const eventUpdatedDate = event.getLastUpdated();
 console.log(eventUpdatedDate);
 ```
-@return the last updated date*/getLastUpdated():Date;
-/**Gets the location of the event.
+@return the last updated date*/ getLastUpdated(): Date;
+    /**Gets the location of the event.
 
 ```
 // Opens the calendar by its ID. You must have edit access to the calendar.
@@ -2300,8 +2517,8 @@ if (event) {
  console.log('No events exist for the specified range');
 }
 ```
-@return the event location*/getLocation():string;
-/**Gets the event status (such as attending or invited) of the effective user. Always returns
+@return the event location*/ getLocation(): string;
+    /**Gets the event status (such as attending or invited) of the effective user. Always returns
 `GuestStatus.OWNER` if the effective user is the owner of the event.
 
 ```
@@ -2326,8 +2543,8 @@ if (event) {
  console.log('No events exist for the specified range');
 }
 ```
-@return the status*/getMyStatus():CalendarApp.GuestStatus;
-/**Get the ID of the calendar where this event was originally created.
+@return the status*/ getMyStatus(): CalendarApp.GuestStatus;
+    /**Get the ID of the calendar where this event was originally created.
 
 ```
 // Opens the calendar by its ID. You must have edit access to the calendar.
@@ -2351,8 +2568,8 @@ if (event) {
  console.log('No events exist for the specified range');
 }
 ```
-@return the ID of the original calendar*/getOriginalCalendarId():string;
-/**Gets the minute values for all pop-up reminders for the event.
+@return the ID of the original calendar*/ getOriginalCalendarId(): string;
+    /**Gets the minute values for all pop-up reminders for the event.
 
 ```
   // Opens the calendar by its ID. You must have edit access to the calendar.
@@ -2382,11 +2599,11 @@ if (event) {
 }
 ```
 @return an array in which each value corresponds to the number of minutes before the event that
-    a reminder triggers*/getPopupReminders():Integer[];
-/**Gets the minute values for all SMS reminders for the event.
+    a reminder triggers*/ getPopupReminders(): Integer[];
+    /**Gets the minute values for all SMS reminders for the event.
 @return an array in which each value corresponds to the number of minutes before the event that
-    a reminder triggers*/getSmsReminders():Integer[];
-/**Gets the date and time at which this calendar event begins. For non–all-day events, this
+    a reminder triggers*/ getSmsReminders(): Integer[];
+    /**Gets the date and time at which this calendar event begins. For non–all-day events, this
 is the instant in time at which the event was defined to start. For all-day events, which only
 store a start date (not a date and time), this is midnight at the beginning of the day on which
 the event starts _in the calendar's time zone_. This allows meaningful comparison of
@@ -2410,11 +2627,11 @@ const event =
 const startTime = event.getStartTime();
 console.log(startTime);
 ```
-@return this calendar event's start time*/getStartTime():Date;
-/**Gets a tag value of the event.
+@return this calendar event's start time*/ getStartTime(): Date;
+    /**Gets a tag value of the event.
 @param key the key
-@return the tag value*/getTag(key:string):string;
-/**Gets the title of the event.
+@return the tag value*/ getTag(key: string): string;
+    /**Gets the title of the event.
 
 ```
 // Opens the calendar by its ID. You must have edit access to the calendar.
@@ -2436,8 +2653,8 @@ if (event) {
  console.log('No events exist for the specified range');
 }
 ```
-@return the title*/getTitle():string;
-/**Gets the visibility of the event.
+@return the title*/ getTitle(): string;
+    /**Gets the visibility of the event.
 
 ```
 // Opens the calendar by its ID. You must have edit access to the calendar.
@@ -2461,8 +2678,8 @@ if (event) {
  console.log('No events exist for the specified range');
 }
 ```
-@return the visibility value*/getVisibility():CalendarApp.Visibility;
-/**Determines whether guests can invite other guests.
+@return the visibility value*/ getVisibility(): CalendarApp.Visibility;
+    /**Determines whether guests can invite other guests.
 
 ```
 // Opens the calendar by its ID. You must have view access to the calendar.
@@ -2485,8 +2702,8 @@ if (event) {
  console.log('No events exist for the specified range');
 }
 ```
-@return `true` if guests can invite others; `false` if not*/guestsCanInviteOthers():boolean;
-/**Determines whether guests can modify the event.
+@return `true` if guests can invite others; `false` if not*/ guestsCanInviteOthers(): boolean;
+    /**Determines whether guests can modify the event.
 
 ```
 // Opens the calendar by its ID. You must have edit access to the calendar.
@@ -2512,8 +2729,8 @@ if (event) {
  console.log('No events exist for the specified range');
 }
 ```
-@return `true` if guests can modify the event; `false` if not*/guestsCanModify():boolean;
-/**Determines whether guests can see other guests.
+@return `true` if guests can modify the event; `false` if not*/ guestsCanModify(): boolean;
+    /**Determines whether guests can see other guests.
 
 ```
 // Opens the calendar by its ID. You must have view access to the calendar.
@@ -2536,8 +2753,8 @@ if (event) {
  console.log('No events exist for the specified range');
 }
 ```
-@return `true` if guests can see other guests; `false` if not*/guestsCanSeeGuests():boolean;
-/**Determines whether this is an all-day event.
+@return `true` if guests can see other guests; `false` if not*/ guestsCanSeeGuests(): boolean;
+    /**Determines whether this is an all-day event.
 
 ```
 // Opens the calendar by its ID. You must have view access to the calendar.
@@ -2552,8 +2769,8 @@ const event =
 // Determines whether this event is an all-day event and logs it.
 console.log(event.isAllDayEvent());
 ```
-@return `true` if the event is all-day; `false` if not*/isAllDayEvent():boolean;
-/**Determines whether you're the owner of the event.
+@return `true` if the event is all-day; `false` if not*/ isAllDayEvent(): boolean;
+    /**Determines whether you're the owner of the event.
 
 ```
 // Opens the calendar by its ID. You must have view access to the calendar.
@@ -2576,8 +2793,8 @@ if (event) {
  console.log('No events exist for the specified range');
 }
 ```
-@return `true` if the event is owned by the effective user; `false` if not*/isOwnedByMe():boolean;
-/**Determines whether the event is part of an event series.
+@return `true` if the event is owned by the effective user; `false` if not*/ isOwnedByMe(): boolean;
+    /**Determines whether the event is part of an event series.
 
 ```
 // Opens the calendar by its ID. You must have view access to the calendar.
@@ -2598,8 +2815,8 @@ if (event) {
  console.log('No events exist for the specified range');
 }
 ```
-@return `true` if the event is part of an event series; `false` if not*/isRecurringEvent():boolean;
-/**Removes all reminders from the event.
+@return `true` if the event is part of an event series; `false` if not*/ isRecurringEvent(): boolean;
+    /**Removes all reminders from the event.
 
 ```
 // Opens the calendar by its ID. You must have edit access to the calendar
@@ -2621,8 +2838,8 @@ if (event) {
  console.log('No events exist for the specified range');
 }
 ```
-@return this [`CalendarEvent`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html) for chaining*/removeAllReminders():CalendarApp.CalendarEvent;
-/**Removes a guest from the event.
+@return this [`CalendarEvent`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html) for chaining*/ removeAllReminders(): CalendarApp.CalendarEvent;
+    /**Removes a guest from the event.
 
 ```
 // Example 1: Remove a guest from one event
@@ -2672,8 +2889,10 @@ function removeGuestFromAllEvents(){
 }
 ```
 @param email the email address of the guest
-@return this [`CalendarEvent`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html) for chaining*/removeGuest(email:string):CalendarApp.CalendarEvent;
-/**Resets the reminders using the calendar's default settings.
+@return this [`CalendarEvent`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html) for chaining*/ removeGuest(
+      email: string,
+    ): CalendarApp.CalendarEvent;
+    /**Resets the reminders using the calendar's default settings.
 
 ```
 // Opens the calendar by its ID. You must have edit access to the calendar.
@@ -2696,8 +2915,8 @@ if (event) {
  console.log('No events exist for the specified range');
 }
 ```
-@return this [`CalendarEvent`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html) for chaining*/resetRemindersToDefault():CalendarApp.CalendarEvent;
-/**Sets the date of the event. Applying this method changes a regular event into an all-day event.
+@return this [`CalendarEvent`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html) for chaining*/ resetRemindersToDefault(): CalendarApp.CalendarEvent;
+    /**Sets the date of the event. Applying this method changes a regular event into an all-day event.
 
 ```
 // Opens the calendar by its ID. You must have edit access to the calendar.
@@ -2719,8 +2938,10 @@ if (event) {
 }
 ```
 @param date the date for the event (the time is ignored)
-@return this CalendarEvent for chaining*/setAllDayDate(date:Date):CalendarApp.CalendarEvent;
-/**Sets the dates of the event. Applying this method changes a regular event into an all-day
+@return this CalendarEvent for chaining*/ setAllDayDate(
+      date: Date,
+    ): CalendarApp.CalendarEvent;
+    /**Sets the dates of the event. Applying this method changes a regular event into an all-day
 event.
 
 ```
@@ -2745,8 +2966,11 @@ if (event) {
 ```
 @param startDate the date when the event starts (the time is ignored)
 @param endDate the date when the event ends (the time is ignored)
-@return this CalendarEvent for chaining*/setAllDayDates(startDate:Date,endDate:Date):CalendarApp.CalendarEvent;
-/**Sets whether non-guests can add themselves to the event.
+@return this CalendarEvent for chaining*/ setAllDayDates(
+      startDate: Date,
+      endDate: Date,
+    ): CalendarApp.CalendarEvent;
+    /**Sets whether non-guests can add themselves to the event.
 
 ```
 // Opens the calendar by its ID. You must have edit access to the calendar.
@@ -2770,8 +2994,10 @@ if (event) {
 }
 ```
 @param anyoneCanAddSelf whether anyone can invite themselves
-@return this [`CalendarEvent`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html) for chaining*/setAnyoneCanAddSelf(anyoneCanAddSelf:boolean):CalendarApp.CalendarEvent;
-/**Sets the color of the calendar event.
+@return this [`CalendarEvent`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html) for chaining*/ setAnyoneCanAddSelf(
+      anyoneCanAddSelf: boolean,
+    ): CalendarApp.CalendarEvent;
+    /**Sets the color of the calendar event.
 
 ```
 // Opens the calendar by its ID. You must have edit access to the calendar.
@@ -2795,8 +3021,10 @@ if (event) {
 }
 ```
 @param color An integer color index as a string, or a value from [`CalendarApp.EventColor`](https://developers.google.com/apps-script/reference/calendar/event-color.html).
-@return This calendar event, for chaining.*/setColor(color:string):CalendarApp.CalendarEvent;
-/**Sets the description of the event.
+@return This calendar event, for chaining.*/ setColor(
+      color: string,
+    ): CalendarApp.CalendarEvent;
+    /**Sets the description of the event.
 
 ```
 // Opens the calendar by its ID. You must have edit access to the calendar.
@@ -2820,8 +3048,10 @@ if (event) {
 }
 ```
 @param description the new description
-@return this [`CalendarEvent`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html) for chaining*/setDescription(description:string):CalendarApp.CalendarEvent;
-/**Sets whether guests can invite other guests.
+@return this [`CalendarEvent`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html) for chaining*/ setDescription(
+      description: string,
+    ): CalendarApp.CalendarEvent;
+    /**Sets whether guests can invite other guests.
 
 ```
 // Opens the calendar by its ID.
@@ -2845,14 +3075,20 @@ if (event) {
 }
 ```
 @param guestsCanInviteOthers whether guests can invite others
-@return this [`CalendarEvent`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html) for chaining*/setGuestsCanInviteOthers(guestsCanInviteOthers:boolean):CalendarApp.CalendarEvent;
-/**Sets whether guests can modify the event.
+@return this [`CalendarEvent`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html) for chaining*/ setGuestsCanInviteOthers(
+      guestsCanInviteOthers: boolean,
+    ): CalendarApp.CalendarEvent;
+    /**Sets whether guests can modify the event.
 @param guestsCanModify whether guests can modify the event
-@return this [`CalendarEvent`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html) for chaining*/setGuestsCanModify(guestsCanModify:boolean):CalendarApp.CalendarEvent;
-/**Sets whether guests can see other guests.
+@return this [`CalendarEvent`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html) for chaining*/ setGuestsCanModify(
+      guestsCanModify: boolean,
+    ): CalendarApp.CalendarEvent;
+    /**Sets whether guests can see other guests.
 @param guestsCanSeeGuests whether guests can see others
-@return this [`CalendarEvent`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html) for chaining*/setGuestsCanSeeGuests(guestsCanSeeGuests:boolean):CalendarApp.CalendarEvent;
-/**Sets the location of the event.
+@return this [`CalendarEvent`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html) for chaining*/ setGuestsCanSeeGuests(
+      guestsCanSeeGuests: boolean,
+    ): CalendarApp.CalendarEvent;
+    /**Sets the location of the event.
 
 ```
 // Opens the calendar by its ID. You must have edit access to the calendar.
@@ -2875,8 +3111,10 @@ if (event) {
 }
 ```
 @param location the new location
-@return this [`CalendarEvent`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html) for chaining*/setLocation(location:string):CalendarApp.CalendarEvent;
-/**Sets the event status (such as attending or invited) of the effective user.
+@return this [`CalendarEvent`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html) for chaining*/ setLocation(
+      location: string,
+    ): CalendarApp.CalendarEvent;
+    /**Sets the event status (such as attending or invited) of the effective user.
 
 ```
 // Opens the calendar by its ID. You must have edit access to the calendar.
@@ -2900,12 +3138,17 @@ if (event) {
 }
 ```
 @param status the new status
-@return this [`CalendarEvent`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html) for chaining*/setMyStatus(status:CalendarApp.GuestStatus):CalendarApp.CalendarEvent;
-/**Sets a key/value tag on the event, for storing custom metadata.
+@return this [`CalendarEvent`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html) for chaining*/ setMyStatus(
+      status: CalendarApp.GuestStatus,
+    ): CalendarApp.CalendarEvent;
+    /**Sets a key/value tag on the event, for storing custom metadata.
 @param key the tag key
 @param value the tag value
-@return this [`CalendarEvent`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html) for chaining*/setTag(key:string,value:string):CalendarApp.CalendarEvent;
-/**Sets the dates and times for the start and end of the event. Applying this method changes an
+@return this [`CalendarEvent`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html) for chaining*/ setTag(
+      key: string,
+      value: string,
+    ): CalendarApp.CalendarEvent;
+    /**Sets the dates and times for the start and end of the event. Applying this method changes an
 all-day event into a regular event.
 
 ```
@@ -2926,8 +3169,11 @@ event.setTime(startTime, endTime);
 ```
 @param startTime the new start of the event
 @param endTime the new end of the event
-@return this CalendarEvent for chaining*/setTime(startTime:Date,endTime:Date):CalendarApp.CalendarEvent;
-/**Sets the title of the event.
+@return this CalendarEvent for chaining*/ setTime(
+      startTime: Date,
+      endTime: Date,
+    ): CalendarApp.CalendarEvent;
+    /**Sets the title of the event.
 
 ```
 // Opens the calendar by its ID. You must have edit access to the calendar.
@@ -2950,10 +3196,16 @@ if (event) {
 }
 ```
 @param title the new title
-@return this [`CalendarEvent`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html) for chaining*/setTitle(title:string):CalendarApp.CalendarEvent;
-/**Sets the visibility of the event.
-@return this [`CalendarEvent`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html) for chaining*/setVisibility(visibility:CalendarApp.Visibility):CalendarApp.CalendarEvent;}interface Calendar{
-/**Creates a new all-day event.
+@return this [`CalendarEvent`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html) for chaining*/ setTitle(
+      title: string,
+    ): CalendarApp.CalendarEvent;
+    /**Sets the visibility of the event.
+@return this [`CalendarEvent`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html) for chaining*/ setVisibility(
+      visibility: CalendarApp.Visibility,
+    ): CalendarApp.CalendarEvent;
+  }
+  interface Calendar {
+    /**Creates a new all-day event.
 
 ```
 // Creates an all-day event for the moon landing and logs the ID.
@@ -2963,8 +3215,11 @@ Logger.log('Event ID: ' + event.getId());
 ```
 @param title The title of the event.
 @param date The date of the event (only the day is used; the time is ignored).
-@return The created event.*/createAllDayEvent(title:string,date:Date):CalendarApp.CalendarEvent;
-/**Creates a new all-day event that can span multiple days.
+@return The created event.*/ createAllDayEvent(
+      title: string,
+      date: Date,
+    ): CalendarApp.CalendarEvent;
+    /**Creates a new all-day event that can span multiple days.
 
 ```
 // Creates an all-day event for the Woodstock festival (August 15th to 17th) and logs the ID.
@@ -2977,8 +3232,12 @@ Logger.log('Event ID: ' + event.getId());
 @param startDate The date when the event starts (only the day is used; the time is ignored).
 @param endDate The date when the event ends (only the day is used; the time is ignored). The
     end date is exclusive.
-@return The created event.*/createAllDayEvent(title:string,startDate:Date,endDate:Date):CalendarApp.CalendarEvent;
-/**Creates a new all-day event that can span multiple days.
+@return The created event.*/ createAllDayEvent(
+      title: string,
+      startDate: Date,
+      endDate: Date,
+    ): CalendarApp.CalendarEvent;
+    /**Creates a new all-day event that can span multiple days.
 
 ```
 // Creates an all-day event for the Woodstock festival (August 15th to 17th) and logs the ID.
@@ -2993,8 +3252,13 @@ Logger.log('Event ID: ' + event.getId());
 @param endDate The date when the event ends (only the day is used; the time is ignored). The
     end date is exclusive.
 @param options A JavaScript object that specifies advanced parameters, as listed below.
-@return The created event.*/createAllDayEvent(title:string,startDate:Date,endDate:Date,options:Object):CalendarApp.CalendarEvent;
-/**Creates a new all-day event.
+@return The created event.*/ createAllDayEvent(
+      title: string,
+      startDate: Date,
+      endDate: Date,
+      options: Object,
+    ): CalendarApp.CalendarEvent;
+    /**Creates a new all-day event.
 
 ```
 // Creates an all-day event for the moon landing and logs the ID.
@@ -3006,8 +3270,12 @@ Logger.log('Event ID: ' + event.getId());
 @param title The title of the event.
 @param date The date of the event (only the day is used; the time is ignored).
 @param options A JavaScript object that specifies advanced parameters, as listed below.
-@return The created event.*/createAllDayEvent(title:string,date:Date,options:Object):CalendarApp.CalendarEvent;
-/**Creates a new all-day event series.
+@return The created event.*/ createAllDayEvent(
+      title: string,
+      date: Date,
+      options: Object,
+    ): CalendarApp.CalendarEvent;
+    /**Creates a new all-day event series.
 
 ```
 // Creates an event series for a no-meetings day, taking place every Wednesday in 2013.
@@ -3022,8 +3290,12 @@ Logger.log('Event Series ID: ' + eventSeries.getId());
 @param startDate the date of the first event in the series (only the day is used; the time is
     ignored)
 @param recurrence the recurrence settings of the event series
-@return the created event series*/createAllDayEventSeries(title:string,startDate:Date,recurrence:CalendarApp.EventRecurrence):CalendarApp.CalendarEventSeries;
-/**Creates a new all-day event series.
+@return the created event series*/ createAllDayEventSeries(
+      title: string,
+      startDate: Date,
+      recurrence: CalendarApp.EventRecurrence,
+    ): CalendarApp.CalendarEventSeries;
+    /**Creates a new all-day event series.
 
 ```
 // Creates an event series for a no-meetings day, taking place every Wednesday in 2013.
@@ -3040,8 +3312,13 @@ Logger.log('Event Series ID: ' + eventSeries.getId());
     ignored)
 @param recurrence the recurrence settings of the event series
 @param options a JavaScript object that specifies advanced parameters, as listed below
-@return the created event series*/createAllDayEventSeries(title:string,startDate:Date,recurrence:CalendarApp.EventRecurrence,options:Object):CalendarApp.CalendarEventSeries;
-/**Creates a new event.
+@return the created event series*/ createAllDayEventSeries(
+      title: string,
+      startDate: Date,
+      recurrence: CalendarApp.EventRecurrence,
+      options: Object,
+    ): CalendarApp.CalendarEventSeries;
+    /**Creates a new event.
 
 If no time zone is specified, the time values are interpreted in the context of the script's
 time zone, which may be different than the calendar's time zone.
@@ -3056,8 +3333,12 @@ Logger.log('Event ID: ' + event.getId());
 @param title the title of the event
 @param startTime the date and time when the event starts
 @param endTime the date and time when the event ends
-@return the created event*/createEvent(title:string,startTime:Date,endTime:Date):CalendarApp.CalendarEvent;
-/**Creates a new event.
+@return the created event*/ createEvent(
+      title: string,
+      startTime: Date,
+      endTime: Date,
+    ): CalendarApp.CalendarEvent;
+    /**Creates a new event.
 
 If no time zone is specified, the time values are interpreted in the context of the script's
 time zone, which may be different than the calendar's time zone.
@@ -3074,8 +3355,13 @@ Logger.log('Event ID: ' + event.getId());
 @param startTime the date and time when the event starts
 @param endTime the date and time when the event ends
 @param options a JavaScript object that specifies advanced parameters, as listed below
-@return the created event*/createEvent(title:string,startTime:Date,endTime:Date,options:Object):CalendarApp.CalendarEvent;
-/**Creates an event from a free-form description.
+@return the created event*/ createEvent(
+      title: string,
+      startTime: Date,
+      endTime: Date,
+      options: Object,
+    ): CalendarApp.CalendarEvent;
+    /**Creates an event from a free-form description.
 
 The description should use the same format as the UI's ["Quick Add"](http://support.google.com/calendar/answer/36604) feature.
 
@@ -3086,8 +3372,10 @@ var event = CalendarApp.getDefaultCalendar()
 Logger.log('Event ID: ' + event.getId());
 ```
 @param description a free-form description of the event
-@return the created event*/createEventFromDescription(description:string):CalendarApp.CalendarEvent;
-/**Creates a new event series.
+@return the created event*/ createEventFromDescription(
+      description: string,
+    ): CalendarApp.CalendarEvent;
+    /**Creates a new event series.
 
 ```
 // Creates an event series for a team meeting, taking place every Tuesday and Thursday in 2013.
@@ -3103,8 +3391,13 @@ Logger.log('Event Series ID: ' + eventSeries.getId());
 @param startTime the date and time when the first event in the series starts
 @param endTime the date and time when the first event in the series ends
 @param recurrence the recurrence settings of the event series
-@return the created event series*/createEventSeries(title:string,startTime:Date,endTime:Date,recurrence:CalendarApp.EventRecurrence):CalendarApp.CalendarEventSeries;
-/**Creates a new event series.
+@return the created event series*/ createEventSeries(
+      title: string,
+      startTime: Date,
+      endTime: Date,
+      recurrence: CalendarApp.EventRecurrence,
+    ): CalendarApp.CalendarEventSeries;
+    /**Creates a new event series.
 
 ```
 // Creates an event series for a team meeting, taking place every Tuesday and Thursday in 2013.
@@ -3122,8 +3415,14 @@ Logger.log('Event Series ID: ' + eventSeries.getId());
 @param endTime the date and time when the first event in the series ends
 @param recurrence the recurrence settings of the event series
 @param options a JavaScript object that specifies advanced parameters, as listed below
-@return the created event series*/createEventSeries(title:string,startTime:Date,endTime:Date,recurrence:CalendarApp.EventRecurrence,options:Object):CalendarApp.CalendarEventSeries;
-/**Deletes the calendar permanently. A user can only delete a calendar they own.
+@return the created event series*/ createEventSeries(
+      title: string,
+      startTime: Date,
+      endTime: Date,
+      recurrence: CalendarApp.EventRecurrence,
+      options: Object,
+    ): CalendarApp.CalendarEventSeries;
+    /**Deletes the calendar permanently. A user can only delete a calendar they own.
 
 ```
 // Creates a calendar to delete.
@@ -3131,8 +3430,8 @@ const calendar = CalendarApp.createCalendar('Test');
 
 // Deletes the 'Test' calendar permanently.
 calendar.deleteCalendar();
-```*/deleteCalendar():void;
-/**Gets the color of the calendar.
+```*/ deleteCalendar(): void;
+    /**Gets the color of the calendar.
 
 ```
 // Opens the calendar by its ID.
@@ -3144,8 +3443,8 @@ const calendar = CalendarApp.getCalendarById('222larabrown@gmail.com');
 const calendarColor = calendar.getColor();
 console.log(calendarColor);
 ```
-@return A hexadecimal color string ("#rrggbb").*/getColor():string;
-/**Gets the description of the calendar.
+@return A hexadecimal color string ("#rrggbb").*/ getColor(): string;
+    /**Gets the description of the calendar.
 
 ```
 // Opens the calendar by its ID.
@@ -3160,8 +3459,8 @@ calendar.setDescription('Test description');
 const description = calendar.getDescription();
 console.log(description);
 ```
-@return The description of this calendar.*/getDescription():string;
-/**Gets the event with the given ID. If the series belongs to a calendar other than the default
+@return The description of this calendar.*/ getDescription(): string;
+    /**Gets the event with the given ID. If the series belongs to a calendar other than the default
 calendar, this method must be called from that calendar. Calling [`CalendarApp.getEventById(iCalId)`](https://developers.google.com/apps-script/reference/calendar/calendar-app.html#getEventById(String)) only
 returns an event in the default calendar.
 
@@ -3189,8 +3488,8 @@ console.log(myEvent.getTitle());
 ```
 @param iCalId ID of the event.
 @return The event with the given ID, or `null` if the event doesn't exist or the user
-    cannot access it.*/getEventById(iCalId:string):CalendarApp.CalendarEvent;
-/**Gets the event series with the given ID. If the ID given is for a single [`CalendarEvent`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html),
+    cannot access it.*/ getEventById(iCalId: string): CalendarApp.CalendarEvent;
+    /**Gets the event series with the given ID. If the ID given is for a single [`CalendarEvent`](https://developers.google.com/apps-script/reference/calendar/calendar-event.html),
 then a [`CalendarEventSeries`](https://developers.google.com/apps-script/reference/calendar/calendar-event-series.html) is returned with a single event in the series. Note that if
 the event series belongs to a calendar other than the default calendar, this method must be
 called from that [`Calendar`](https://developers.google.com/apps-script/reference/calendar/calendar.html); calling [`CalendarApp.getEventSeriesById(iCalId)`](https://developers.google.com/apps-script/reference/calendar/calendar-app.html#getEventSeriesById(String))
@@ -3217,8 +3516,10 @@ console.log(calendar.getEventSeriesById(iCalId).getTitle());
 ```
 @param iCalId ID of the event series.
 @return The series with the given ID, or `null` if the series doesn't exist or the user
-    cannot access it.*/getEventSeriesById(iCalId:string):CalendarApp.CalendarEventSeries;
-/**Gets all events that occur within a given time range.
+    cannot access it.*/ getEventSeriesById(
+      iCalId: string,
+    ): CalendarApp.CalendarEventSeries;
+    /**Gets all events that occur within a given time range.
 
 This method returns events that start during the given time range, end during the time
 range, or encompass the time range. If no time zone is specified, the time values are
@@ -3234,8 +3535,11 @@ Logger.log('Number of events: ' + events.length);
 ```
 @param startTime the start of the time range
 @param endTime the end of the time range, non-inclusive
-@return the events that occur within the time range*/getEvents(startTime:Date,endTime:Date):CalendarApp.CalendarEvent[];
-/**Gets all events that occur within a given time range and meet the specified criteria.
+@return the events that occur within the time range*/ getEvents(
+      startTime: Date,
+      endTime: Date,
+    ): CalendarApp.CalendarEvent[];
+    /**Gets all events that occur within a given time range and meet the specified criteria.
 
 This method returns events that start during the given time range, ends during the time
 range, or encompasses the time range. If no time zone is specified, the time values are
@@ -3258,8 +3562,12 @@ Logger.log('Number of events: ' + events.length);
 @param startTime the start of the time range
 @param endTime the end of the time range, non-inclusive
 @param options a JavaScript object that specifies advanced parameters, as listed below
-@return the events that take place within the time range and match the criteria*/getEvents(startTime:Date,endTime:Date,options:Object):CalendarApp.CalendarEvent[];
-/**Gets all events that occur on a given day.
+@return the events that take place within the time range and match the criteria*/ getEvents(
+      startTime: Date,
+      endTime: Date,
+      options: Object,
+    ): CalendarApp.CalendarEvent[];
+    /**Gets all events that occur on a given day.
 
 This method returns events if they start during the given day, end during the day, or
 encompass the day.
@@ -3275,8 +3583,10 @@ var events = CalendarApp.getDefaultCalendar().getEventsForDay(today);
 Logger.log('Number of events: ' + events.length);
 ```
 @param date the date to retrieve events for (only the day is used; the time is ignored)
-@return the events that occur on the given date*/getEventsForDay(date:Date):CalendarApp.CalendarEvent[];
-/**Gets all events that occur on a given day and meet specified criteria.
+@return the events that occur on the given date*/ getEventsForDay(
+      date: Date,
+    ): CalendarApp.CalendarEvent[];
+    /**Gets all events that occur on a given day and meet specified criteria.
 
 This method returns events if they start during the given day, end during the day, or
 encompass the day.
@@ -3297,8 +3607,11 @@ Logger.log('Number of events: ' + events.length);
 ```
 @param date the date to retrieve events for (only the day is used; the time is ignored)
 @param options advanced filtering options
-@return the events that occur on the given date and match the criteria*/getEventsForDay(date:Date,options:Object):CalendarApp.CalendarEvent[];
-/**Gets the ID of the calendar. The ID for a user's default calendar is their email address.
+@return the events that occur on the given date and match the criteria*/ getEventsForDay(
+      date: Date,
+      options: Object,
+    ): CalendarApp.CalendarEvent[];
+    /**Gets the ID of the calendar. The ID for a user's default calendar is their email address.
 
 ```
 // Opens the calendar by its ID.
@@ -3310,8 +3623,8 @@ const calendar = CalendarApp.getCalendarById('222larabrown@gmail.com');
 const calendarId = calendar.getId();
 console.log(calendarId);
 ```
-@return The ID of the calendar.*/getId():string;
-/**Gets the name of the calendar.
+@return The ID of the calendar.*/ getId(): string;
+    /**Gets the name of the calendar.
 
 ```
 // Opens the calendar by its ID.
@@ -3323,8 +3636,8 @@ const calendar = CalendarApp.getCalendarById('222larabrown@gmail.com');
 const calendarName = calendar.getName();
 console.log(calendarName);
 ```
-@return This calendar's name.*/getName():string;
-/**Gets the time zone of the calendar.
+@return This calendar's name.*/ getName(): string;
+    /**Gets the time zone of the calendar.
 
 ```
 // Opens the calendar by its ID.
@@ -3337,8 +3650,8 @@ const timeZone = calendar.getTimeZone();
 console.log(timeZone);
 ```
 @return The time zone, specified in "long" format (for example, "America/New_York", as listed
-    by [Joda.org](http://joda-time.sourceforge.net/timezones.html)).*/getTimeZone():string;
-/**Determines whether the calendar is hidden in the user interface.
+    by [Joda.org](http://joda-time.sourceforge.net/timezones.html)).*/ getTimeZone(): string;
+    /**Determines whether the calendar is hidden in the user interface.
 
 ```
 // Opens the calendar by its ID.
@@ -3351,8 +3664,8 @@ const isHidden = calendar.isHidden();
 console.log(isHidden);
 ```
 @return `true` if the calendar is hidden in the user interface; `false` if it
-    isn't.*/isHidden():boolean;
-/**Determines whether the calendar is the primary calendar for the effective user.
+    isn't.*/ isHidden(): boolean;
+    /**Determines whether the calendar is the primary calendar for the effective user.
 
 ```
 // Opens the calendar by its ID.
@@ -3365,8 +3678,8 @@ const calendar = CalendarApp.getCalendarById('222larabrown@gmail.com');
 const isMyPrimaryCalendar = calendar.isMyPrimaryCalendar();
 console.log(isMyPrimaryCalendar);
 ```
-@return `true` if the calendar is the default calendar for the effective user; `false` if it isn't.*/isMyPrimaryCalendar():boolean;
-/**Determines whether the calendar is owned by you.
+@return `true` if the calendar is the default calendar for the effective user; `false` if it isn't.*/ isMyPrimaryCalendar(): boolean;
+    /**Determines whether the calendar is owned by you.
 
 ```
 // Gets a calendar by its ID. To get the user's default calendar, use
@@ -3377,8 +3690,8 @@ const calendar = CalendarApp.getCalendarById('abc123456@group.calendar.google.co
 // Determines whether the calendar is owned by you and logs it.
 console.log(calendar.isOwnedByMe());
 ```
-@return `true` if the calendar is owned by you; `false` if not.*/isOwnedByMe():boolean;
-/**Determines whether the calendar's events are displayed in the user interface.
+@return `true` if the calendar is owned by you; `false` if not.*/ isOwnedByMe(): boolean;
+    /**Determines whether the calendar's events are displayed in the user interface.
 
 ```
 // Gets the user's default calendar. To get a different calendar, use getCalendarById()
@@ -3388,8 +3701,8 @@ const calendar = CalendarApp.getDefaultCalendar();
 // Determines whether the calendar's events are displayed in the user interface and logs it.
 console.log(calendar.isSelected());
 ```
-@return `true` if the calendar's events are displayed in the user interface; `false` if not*/isSelected():boolean;
-/**Sets the color of the calendar.
+@return `true` if the calendar's events are displayed in the user interface; `false` if not*/ isSelected(): boolean;
+    /**Sets the color of the calendar.
 
 ```
 // Opens the calendar by its ID.
@@ -3402,8 +3715,10 @@ calendar.setColor(CalendarApp.Color.PINK);
 ```
 @param color A [`CalendarApp.Color`](https://developers.google.com/apps-script/reference/calendar/color.html) or a hexadecimal color string
     ("#rrggbb").
-@return This calendar for chaining.*/setColor(color:string):CalendarApp.Calendar;
-/**Sets the description of a calendar.
+@return This calendar for chaining.*/ setColor(
+      color: string,
+    ): CalendarApp.Calendar;
+    /**Sets the description of a calendar.
 
 ```
 // Gets the user's default calendar. To get a different calendar, use getCalendarById()
@@ -3415,11 +3730,15 @@ const calendar = CalendarApp.getDefaultCalendar();
 calendar.setDescription('Updated calendar description.')
 ```
 @param description the description of this calendar
-@return this calendar for chaining*/setDescription(description:string):CalendarApp.Calendar;
-/**Sets whether the calendar is visible in the user interface.
+@return this calendar for chaining*/ setDescription(
+      description: string,
+    ): CalendarApp.Calendar;
+    /**Sets whether the calendar is visible in the user interface.
 @param hidden `true` to hide the calendar in the user interface; `false` to show it
-@return this calendar for chaining*/setHidden(hidden:boolean):CalendarApp.Calendar;
-/**Sets the name of the calendar.
+@return this calendar for chaining*/ setHidden(
+      hidden: boolean,
+    ): CalendarApp.Calendar;
+    /**Sets the name of the calendar.
 
 ```
 // Gets the user's default calendar. To get a different calendar, use getCalendarById()
@@ -3431,8 +3750,10 @@ const calendar = CalendarApp.getDefaultCalendar();
 calendar.setName('Example calendar name');
 ```
 @param name the new name
-@return this calendar for chaining*/setName(name:string):CalendarApp.Calendar;
-/**Sets whether the calendar's events are displayed in the user interface.
+@return this calendar for chaining*/ setName(
+      name: string,
+    ): CalendarApp.Calendar;
+    /**Sets whether the calendar's events are displayed in the user interface.
 
 ```
 // Gets the user's default calendar. To get a different calendar, use getCalendarById()
@@ -3445,8 +3766,10 @@ calendar.setSelected(true);
 ```
 @param selected `true` to show the calendar's events in the user interface; `false`
     to hide them
-@return this calendar for chaining*/setSelected(selected:boolean):CalendarApp.Calendar;
-/**Sets the time zone of the calendar.
+@return this calendar for chaining*/ setSelected(
+      selected: boolean,
+    ): CalendarApp.Calendar;
+    /**Sets the time zone of the calendar.
 
 ```
 // Gets the user's default calendar. To get a different calendar, use getCalendarById()
@@ -3458,8 +3781,10 @@ calendar.setTimeZone('America/New_York');
 ```
 @param timeZone The time zone, specified in "long" format (such as "America/New_York", as
     listed by [Joda.org](http://joda-time.sourceforge.net/timezones.html)).
-@return This calendar for chaining.*/setTimeZone(timeZone:string):CalendarApp.Calendar;
-/**Unsubscribes the user from a calendar. A user can't unsubscribe from calendars listed under the
+@return This calendar for chaining.*/ setTimeZone(
+      timeZone: string,
+    ): CalendarApp.Calendar;
+    /**Unsubscribes the user from a calendar. A user can't unsubscribe from calendars listed under the
 __My calendars__ list. They can unsubscribe from calendars listed under __Other
 calendars__.
 
@@ -3470,4 +3795,7 @@ const calendar = CalendarApp.getCalendarById('abc123456@group.calendar.google.co
 
 // Unsubscribes the user from the calendar.
 const result = calendar.unsubscribeFromCalendar();
-```*/unsubscribeFromCalendar():void;}}const CalendarApp:CalendarApp;
+```*/ unsubscribeFromCalendar(): void;
+  }
+}
+const CalendarApp: CalendarApp;
